@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { about } from "@/content/about";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
@@ -13,6 +14,18 @@ export default function AboutPage() {
     <>
       <PageHero title="About Us" description="About Kishor Career Point" />
       <Container className="py-14 sm:py-16">
+        <div className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {about.gallery.map((photo) => (
+            <Image
+              key={photo.src}
+              src={photo.src}
+              alt={photo.alt}
+              width={photo.width}
+              height={photo.height}
+              className="h-auto w-full rounded-2xl border border-line"
+            />
+          ))}
+        </div>
         <div className="max-w-3xl space-y-5 text-base leading-7 text-ink/90">
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>

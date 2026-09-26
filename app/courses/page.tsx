@@ -24,14 +24,14 @@ export default function CoursesPage() {
             <li
               key={course.id}
               id={course.id}
-              className="overflow-hidden rounded-3xl border border-line sm:grid sm:grid-cols-[220px_1fr]"
+              className="overflow-hidden rounded-3xl border border-line"
             >
               <Image
                 src={course.image}
                 alt={course.name}
                 width={393}
                 height={205}
-                className="h-full w-full object-cover"
+                className="h-auto w-full"
               />
               <div className="p-6 sm:p-8">
                 <h3 className="text-2xl font-semibold">{course.name}</h3>
