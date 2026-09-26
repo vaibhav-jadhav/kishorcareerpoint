@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { courses, coursesPageIntro } from "@/content/courses";
 import { TestimonialList } from "@/components/home/HomeSections";
 import { Container } from "@/components/ui/Container";
@@ -20,9 +21,22 @@ export default function CoursesPage() {
         </div>
         <ul className="mt-10 grid gap-5">
           {courses.map((course) => (
-            <li key={course.id} id={course.id} className="rounded-3xl border border-line p-6 sm:p-8">
-              <h3 className="text-2xl font-semibold">{course.name}</h3>
-              <p className="mt-3 max-w-3xl text-base leading-7 text-muted">{course.summary}</p>
+            <li
+              key={course.id}
+              id={course.id}
+              className="overflow-hidden rounded-3xl border border-line sm:grid sm:grid-cols-[220px_1fr]"
+            >
+              <Image
+                src={course.image}
+                alt={course.name}
+                width={393}
+                height={205}
+                className="h-full w-full object-cover"
+              />
+              <div className="p-6 sm:p-8">
+                <h3 className="text-2xl font-semibold">{course.name}</h3>
+                <p className="mt-3 max-w-3xl text-base leading-7 text-muted">{course.summary}</p>
+              </div>
             </li>
           ))}
         </ul>

@@ -2,6 +2,7 @@ export type Course = {
   id: string;
   name: string;
   summary: string;
+  image: string;
 };
 
 export const coursesIntro =
@@ -16,17 +17,20 @@ export const courses: Course[] = [
     name: "JEE (Main + Advanced)",
     summary:
       "Rigorous coaching for engineering aspirants, covering all critical concepts and problem-solving techniques needed for IIT success.",
+    image: "/courses/jee.jpg",
   },
   {
     id: "neet",
     name: "NEET (UG)",
     summary:
       "Structured preparation for medical entrance, including in-depth coverage of biology, physics, and chemistry by experienced mentors.",
+    image: "/courses/neet.jpg",
   },
   {
     id: "foundation",
     name: "Foundation (8th–10th)",
     summary:
       "Focused guidance for school students to build strong academic fundamentals, develop analytical skills, and foster holistic growth.",
+    image: "/courses/foundation.jpg",
   },
 ];

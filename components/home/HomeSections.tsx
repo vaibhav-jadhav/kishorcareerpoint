@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { about, skills, whyUs } from "@/content/about";
 import { blogIntro, formatPostDate, posts } from "@/content/blog";
@@ -75,12 +76,19 @@ export function CourseGrid() {
             <li key={course.id}>
               <Link
                 href="/courses"
-                className="flex h-full flex-col rounded-3xl border border-line bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
               >
-                <span className="text-sm font-bold text-brand">0{index + 1}</span>
-                <h3 className="mt-3 text-xl font-semibold">{course.name}</h3>
-                <p className="mt-3 flex-1 text-sm leading-6 text-muted">{course.summary}</p>
-                <span className="mt-5 text-sm font-semibold text-brand">View course</span>
+                <Image
+                  src={course.image}
+                  alt={course.name}
+                  width={393}
+                  height={205}
+                  className="h-auto w-full"
+                />
+                <span className="px-6 pt-6 text-sm font-bold text-brand">0{index + 1}</span>
+                <h3 className="mt-3 px-6 text-xl font-semibold">{course.name}</h3>
+                <p className="mt-3 flex-1 px-6 text-sm leading-6 text-muted">{course.summary}</p>
+                <span className="mt-5 px-6 pb-6 text-sm font-semibold text-brand">View course</span>
               </Link>
             </li>
           ))}
@@ -150,14 +158,23 @@ export function RankerGrid() {
             <li key={student.name}>
               <Link
                 href="/results"
-                className="block h-full rounded-3xl border border-line bg-white p-6"
+                className="block h-full overflow-hidden rounded-3xl border border-line bg-white"
               >
+                <Image
+                  src={student.image}
+                  alt={student.name}
+                  width={352}
+                  height={333}
+                  className="h-auto w-full bg-[#ece8f4]"
+                />
+                <div className="p-6">
                 <p className="text-lg font-semibold text-ink">{student.name}</p>
                 {student.lines.map((line) => (
                   <p key={line} className="mt-1 text-sm text-muted">
                     {line}
                   </p>
                 ))}
+                </div>
               </Link>
             </li>
           ))}

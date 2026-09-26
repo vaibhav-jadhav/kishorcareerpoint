@@ -18,6 +18,32 @@ export const about = {
     "Accountability",
     "Employee Care",
   ],
+  gallery: [
+    {
+      src: "/about/wordmark.jpg",
+      alt: "Vishal Pagade Sir's Kishor Career Point, IIT and Medical Academy",
+      width: 598,
+      height: 485,
+    },
+    {
+      src: "/about/building.jpg",
+      alt: "Kishor Career Point building",
+      width: 290,
+      height: 488,
+    },
+    {
+      src: "/about/study-hall.jpg",
+      alt: "Students studying at Kishor Career Point",
+      width: 290,
+      height: 218,
+    },
+    {
+      src: "/about/classroom.jpg",
+      alt: "A class in session at Kishor Career Point",
+      width: 291,
+      height: 248,
+    },
+  ],
 } as const;
 
 export const whyUs = {

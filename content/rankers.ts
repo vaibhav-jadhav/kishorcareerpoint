@@ -1,6 +1,7 @@
 export type Ranker = {
   name: string;
   lines: string[];
+  image: string;
 };
 
 export const rankersIntro =
@@ -10,26 +11,32 @@ export const rankers: Ranker[] = [
   {
     name: "Kartik Satpute",
     lines: ["NEET 2025 — Score 705", "AIIMS NAGPUR"],
+    image: "/rankers/kartik-satpute.jpg",
   },
   {
     name: "Rasika Patil",
     lines: ["IISER EXAM-2025 — 1 AIR"],
+    image: "/rankers/rasika-patil.jpg",
   },
   {
     name: "Saadahamad Mulla",
     lines: ["NEET 2025 — Score 593"],
+    image: "/rankers/saadahamad-mulla.jpg",
   },
   {
     name: "Ishan Patil",
     lines: ["IIT Bombay"],
+    image: "/rankers/ishan-patil.jpg",
   },
   {
     name: "Varad Kale",
     lines: ["NIT Warangal"],
+    image: "/rankers/varad-kale.jpg",
   },
   {
     name: "Shreya Adsul",
     lines: ["IISER — Bhopal"],
+    image: "/rankers/shreya-adsul.jpg",
   },
 ];
 
