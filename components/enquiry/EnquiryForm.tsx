@@ -19,7 +19,7 @@ export function EnquiryForm({ tone = "light" }: EnquiryFormProps) {
   const dark = tone === "dark";
   const fieldClass = dark
     ? "w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/50"
-    : "w-full rounded-xl border border-line bg-white px-4 py-3 text-sm text-ink";
+    : "w-full rounded-xl border border-line bg-page px-4 py-3 text-sm text-ink";
   const labelClass = dark ? "text-white/80" : "text-ink";
 
   return (

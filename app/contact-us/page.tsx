@@ -49,7 +49,7 @@ export default function ContactPage() {
           <div className="bg-brand-dark p-7 text-white sm:p-10">
             <h2 className="text-2xl font-semibold">{enquiryCopy.contactTitle}</h2>
             <p className="mt-3 text-sm leading-7 text-white/75">{enquiryCopy.contactBody}</p>
-            <div className="mt-6 rounded-2xl bg-white p-5 text-ink">
+            <div className="mt-6 rounded-2xl bg-card p-5 text-ink">
               <EnquiryForm />
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function ContactPage() {
           </p>
           <ul className="mt-8 grid gap-4 md:grid-cols-2">
             {others.map((branch) => (
-              <li key={branch.id} className="rounded-3xl border border-line bg-white p-6">
+              <li key={branch.id} className="rounded-3xl border border-line bg-card p-6">
                 <h3 className="text-xl font-semibold">{branch.name}</h3>
                 <p className="mt-2 text-sm leading-6 text-muted">{branch.address}</p>
                 <p className="mt-3 text-sm">

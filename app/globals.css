@@ -1,17 +1,46 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: var(--font-sans-app), ui-sans-serif, system-ui, sans-serif;
   --color-brand: #005aaa;
   --color-brand-dark: #04284a;
-  --color-brand-soft: #e7f2fb;
   --color-accent: #e4570e;
   --color-accent-dark: #c2410c;
-  --color-ink: #102033;
-  --color-muted: #5d6b7b;
-  --color-line: #e4eaf1;
-  --color-surface: #f4f7fb;
   --color-gold: #d89b12;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-brand-soft: var(--brand-soft);
+}
+
+:root {
+  color-scheme: light;
+  --page: #ffffff;
+  --card: #ffffff;
+  --ink: #102033;
+  --muted: #5d6b7b;
+  --line: #e4eaf1;
+  --surface: #f4f7fb;
+  --brand-soft: #e7f2fb;
+}
+
+.dark {
+  color-scheme: dark;
+  --page: #0b1520;
+  --card: #132232;
+  --ink: #e8eef5;
+  --muted: #a8b6c6;
+  --line: #2a3d52;
+  --surface: #101c2b;
+  --brand-soft: #16324d;
 }
 
 html {
@@ -19,12 +48,13 @@ html {
 }
 
 body {
-  background: #fff;
-  color: var(--color-ink);
+  background: var(--page);
+  color: var(--ink);
 }
 
 ::selection {
-  background: #cfe6f8;
+  background: var(--brand-soft);
+  color: var(--ink);
 }
 
 :focus-visible {

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { primaryNav, secondaryNav } from "@/content/navigation";
 import { site, telHref } from "@/content/site";
 
@@ -18,7 +19,7 @@ export function SiteHeader() {
   const links = [...primaryNav, ...secondaryNav];
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line bg-page/95 backdrop-blur">
       <div className="hidden border-b border-line bg-brand-dark text-white lg:block">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2 text-sm">
           <p>Coaching for JEE, NEET and Foundation across Maharashtra</p>
@@ -81,6 +82,7 @@ export function SiteHeader() {
           >
             Talent Hunt Exam
           </a>
+          <ThemeToggle />
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line xl:hidden"
@@ -99,7 +101,7 @@ export function SiteHeader() {
       {open ? (
         <nav
           id="mobile-nav"
-          className="border-t border-line bg-white px-5 py-3 xl:hidden"
+          className="border-t border-line bg-page px-5 py-3 xl:hidden"
           aria-label="Mobile"
         >
           <ul className="space-y-1">

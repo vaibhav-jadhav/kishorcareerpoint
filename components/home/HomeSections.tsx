@@ -76,7 +76,7 @@ export function CourseGrid() {
             <li key={course.id}>
               <Link
                 href="/courses"
-                className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+                className="flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-card shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
               >
                 <Image
                   src={course.image}
@@ -158,7 +158,7 @@ export function RankerGrid() {
             <li key={student.name}>
               <Link
                 href="/results"
-                className="block h-full overflow-hidden rounded-3xl border border-line bg-white"
+                className="block h-full overflow-hidden rounded-3xl border border-line bg-card"
               >
                 <Image
                   src={student.image}
@@ -213,7 +213,7 @@ export function NewsPreview() {
             <li key={post.slug}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block rounded-3xl border border-line bg-white p-6 sm:p-8"
+                className="block rounded-3xl border border-line bg-card p-6 sm:p-8"
               >
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand">
                   {post.category} · {formatPostDate(post.updatedAt)}
@@ -243,7 +243,7 @@ export function EnquiryBand() {
             tone="dark"
           />
         </div>
-        <div className="rounded-3xl bg-white p-6 text-ink sm:p-8">
+        <div className="rounded-3xl bg-card p-6 text-ink sm:p-8">
           <EnquiryForm />
         </div>
       </Container>

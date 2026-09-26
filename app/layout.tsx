@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { themeBootScript } from "@/components/layout/theme";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
 import { site } from "@/content/site";
 import "./globals.css";
@@ -45,11 +46,12 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={sans.variable}>
-      <body className="min-h-screen bg-white font-sans text-ink antialiased">
+    <html lang="en" className={sans.variable} suppressHydrationWarning>
+      <body className="min-h-screen bg-page font-sans text-ink antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-card focus:px-4 focus:py-2 focus:text-ink"
         >
           Skip to content
         </a>

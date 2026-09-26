@@ -8,7 +8,7 @@ export function BranchList() {
         <li
           key={branch.id}
           id={branch.id}
-          className="overflow-hidden rounded-3xl border border-line bg-white"
+          className="overflow-hidden rounded-3xl border border-line bg-card"
         >
           <div className="grid lg:grid-cols-[320px_1fr]">
             <iframe

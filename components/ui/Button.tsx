@@ -13,7 +13,7 @@ const variants = {
   primary: "bg-brand text-white hover:bg-brand-dark",
   accent: "bg-accent text-white hover:bg-accent-dark",
   ghost: "border border-white/30 text-white hover:bg-white/10",
-  light: "bg-white text-brand hover:bg-brand-soft",
+  light: "bg-white text-brand hover:bg-[#e7f2fb]",
 };
 
 export function Button({
