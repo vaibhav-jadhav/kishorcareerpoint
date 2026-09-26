@@ -19,7 +19,7 @@ A Next.js marketing site. React, TypeScript, Tailwind, App Router. Content lives
 ## Content rules
 
 - Do not invent rankers, scores, branches, phone numbers, or testimonials.
-- Do not attach stock photos to named students. The WordPress theme used Porto demo images for those cards.
+- Do not attach stock headshots to named students on the homepage. The Results posters in `public/results/` are real KCP collages and must stay on `/results`.
 - Keep public URLs stable: `/about-us`, `/courses`, `/results`, `/branches`, `/contact-us`, `/blog/kcp-blog`.
 - External links that must stay: Talent Hunt Google Form, Olympiad site, WhatsApp, Facebook, Instagram, YouTube. They are defined once in `content/site.ts`.
 - Careers stays an empty list until a real role is provided. Do not add sample jobs.

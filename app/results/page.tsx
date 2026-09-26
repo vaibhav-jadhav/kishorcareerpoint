@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { RankerGrid } from "@/components/home/HomeSections";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
@@ -14,14 +15,22 @@ export default function ResultsPage() {
     <>
       <PageHero title="Results" description={rankersIntro} />
       <Container className="py-14">
-        <h2 className="text-2xl font-semibold">Achievement highlights</h2>
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <h2 className="sr-only">Achievement highlights</h2>
+        <ul className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
           {resultHighlights.map((item) => (
-            <li
-              key={item.title}
-              className="rounded-2xl border border-line bg-surface px-5 py-5 text-base font-semibold"
-            >
-              {item.title}
+            <li key={item.title}>
+              <h3 className="text-sm font-bold uppercase tracking-wide text-ink">
+                {item.title}
+              </h3>
+              <a href={item.image} target="_blank" rel="noreferrer" className="mt-3 block">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={1000}
+                  height={1000}
+                  className="h-auto w-full rounded-2xl border border-line"
+                />
+              </a>
             </li>
           ))}
         </ul>

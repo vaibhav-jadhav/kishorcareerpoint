@@ -35,14 +35,15 @@ export const rankers: Ranker[] = [
 
 export type ResultHighlight = {
   title: string;
+  image: string;
 };
 
 export const resultHighlights: ResultHighlight[] = [
-  { title: "Achievement in JEE" },
-  { title: "JEE Mains 2025" },
-  { title: "KCP's NITians" },
-  { title: "Stars in IISER exam" },
-  { title: "NEET 2024" },
-  { title: "AIIMS Pearls" },
-  { title: "Achievement in MHT-CET 2024" },
+  { title: "Achievement in JEE", image: "/results/achievement-in-jee.jpg" },
+  { title: "JEE Mains 2025", image: "/results/jee-mains-2025.jpg" },
+  { title: "KCP's NITians", image: "/results/kcp-nitians.jpg" },
+  { title: "Stars in IISER exam", image: "/results/stars-in-iiser.jpg" },
+  { title: "NEET 2024", image: "/results/neet-2024.jpg" },
+  { title: "AIIMS Pearls", image: "/results/aiims-pearls.jpg" },
+  { title: "Achievement in MHT-CET 2024", image: "/results/mht-cet-2024.jpg" },
 ];

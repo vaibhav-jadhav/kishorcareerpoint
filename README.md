@@ -119,7 +119,8 @@ Add the same variables in the Vercel project settings before going live.
 
 ## What was intentionally left out
 
-- Porto demo photos are not used as student portraits. The old results gallery pointed at stock theme images, not photographs of the named students.
+- The Results page posters live in `public/results/`. They came from the theme files `img/projects/project-1.jpg` through `project-7.jpg`.
+- Homepage ranker cards list names and scores only. The old homepage used Porto demo headshots for those students, not their photos.
 - Placeholder blog cards on the old homepage (dated February, with no articles behind them) are not republished. The blog shows the one real post from the database.
 - Lorem ipsum quotes on the old courses page are not republished. Testimonials are the two quotes from the homepage.
 - Director’s Message is not a route. In WordPress that template was a copy of the homepage and the menu item was turned off.
