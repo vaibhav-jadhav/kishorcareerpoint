@@ -74,5 +74,5 @@ export const enquiryCopy = {
   body: "Have questions about our courses, admissions, or programs? Our team is here to help you with all the information you need to make the right decision. Reach out today and take the first step toward academic excellence.",
   contactTitle: "Have a Question? We'll Help",
   contactBody:
-    "Use the form to send your query about courses, admissions, schedules, or campus visits. Please include your name, best contact number, and a brief message — our team will get back to you within 24 hours on business days.",
+    "Call us or message us on WhatsApp with your query about courses, admissions, schedules, or campus visits. Our team will be happy to help.",
 } as const;

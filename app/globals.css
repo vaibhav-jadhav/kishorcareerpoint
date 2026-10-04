@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
   --font-sans: var(--font-sans-app), ui-sans-serif, system-ui, sans-serif;
   --color-brand: #005aaa;
@@ -9,6 +7,15 @@
   --color-accent: #e4570e;
   --color-accent-dark: #c2410c;
   --color-gold: #d89b12;
+  /* Primary call-to-action yellow (Talent Hunt, enrol buttons). */
+  --color-sun: #ffc20e;
+  --color-sun-dark: #f2b200;
+  /* Light blue wash used behind hero and filter sections. */
+  --color-sky: #eaf4fc;
+  /* Small "New" tags in the top bar. */
+  --color-tag: #1aa14a;
+  /* Selected state for the goal picker (vibrant blue). */
+  --color-select: #1f6feb;
 }
 
 @theme inline {
@@ -32,17 +39,6 @@
   --brand-soft: #e7f2fb;
 }
 
-.dark {
-  color-scheme: dark;
-  --page: #0b1520;
-  --card: #132232;
-  --ink: #e8eef5;
-  --muted: #a8b6c6;
-  --line: #2a3d52;
-  --surface: #101c2b;
-  --brand-soft: #16324d;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -60,4 +56,230 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 3px;
+}
+
+/* Small looping animations used by decorative icons and shapes. */
+@keyframes kcp-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes kcp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kcp-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.14);
+  }
+  60% {
+    transform: scale(1.04);
+  }
+}
+
+@keyframes kcp-ecg {
+  from {
+    stroke-dashoffset: 60;
+  }
+  to {
+    stroke-dashoffset: -60;
+  }
+}
+
+@keyframes kcp-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes kcp-flame {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.35);
+  }
+}
+
+@keyframes kcp-sweep {
+  from {
+    transform: translateX(-120%) skewX(-18deg);
+  }
+  to {
+    transform: translateX(320%) skewX(-18deg);
+  }
+}
+
+@keyframes kcp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-rise {
+  animation: kcp-rise 0.45s ease-out both;
+}
+
+.anim-float {
+  animation: kcp-float 5s ease-in-out infinite;
+}
+
+.anim-float-slow {
+  animation: kcp-float 8s ease-in-out infinite;
+}
+
+.anim-spin-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kcp-spin 14s linear infinite;
+}
+
+.anim-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kcp-pulse 1.6s ease-in-out infinite;
+}
+
+.anim-ecg {
+  stroke-dasharray: 30 30;
+  animation: kcp-ecg 2.4s linear infinite;
+}
+
+.anim-twinkle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kcp-twinkle 2.2s ease-in-out infinite;
+}
+
+.anim-flame {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: kcp-flame 0.5s ease-in-out infinite;
+}
+
+.group:hover .anim-sweep {
+  animation: kcp-sweep 0.9s ease-out;
+}
+
+@keyframes kcp-wave {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(14deg);
+  }
+}
+
+@keyframes kcp-fall {
+  0% {
+    transform: translateY(-30px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(270px) rotate(540deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes kcp-grow {
+  from {
+    transform: scaleY(0.35);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes kcp-draw {
+  0% {
+    stroke-dashoffset: 30;
+  }
+  25%,
+  85% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 30;
+  }
+}
+
+.anim-wave {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: kcp-wave 1.3s ease-in-out infinite alternate;
+}
+
+.anim-fall {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kcp-fall 4.2s linear infinite;
+}
+
+.anim-grow {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: kcp-grow 2.6s ease-in-out infinite alternate;
+}
+
+.anim-draw {
+  stroke-dasharray: 30;
+  animation: kcp-draw 3.4s ease-in-out infinite;
+}
+
+.anim-tick {
+  animation: kcp-spin 6s linear infinite;
+}
+
+.anim-rays {
+  animation: kcp-spin 160s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .anim-rise,
+  .anim-float,
+  .anim-float-slow,
+  .anim-spin-slow,
+  .anim-pulse,
+  .anim-ecg,
+  .anim-twinkle,
+  .anim-flame,
+  .anim-wave,
+  .anim-fall,
+  .anim-grow,
+  .anim-draw,
+  .anim-tick,
+  .anim-rays,
+  .group:hover .anim-sweep {
+    animation: none;
+  }
 }

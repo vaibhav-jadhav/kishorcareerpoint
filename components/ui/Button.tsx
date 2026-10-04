@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 type ButtonProps = {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "accent" | "ghost" | "light";
+  variant?: "primary" | "accent" | "ghost" | "light" | "sun" | "outline";
   external?: boolean;
   className?: string;
 };
@@ -14,6 +14,8 @@ const variants = {
   accent: "bg-accent text-white hover:bg-accent-dark",
   ghost: "border border-white/30 text-white hover:bg-white/10",
   light: "bg-white text-brand hover:bg-[#e7f2fb]",
+  sun: "bg-sun text-brand-dark shadow-sm hover:bg-sun-dark",
+  outline: "border border-brand bg-white text-brand hover:bg-brand-soft",
 };
 
 export function Button({
@@ -24,6 +26,15 @@ export function Button({
   className = "",
 }: ButtonProps) {
   const classes = `inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold transition ${variants[variant]} ${className}`;
+
+  // tel: and mailto: links must not use the client router or open a new tab.
+  if (/^(tel|mailto):/.test(href)) {
+    return (
+      <a href={href} className={classes}>
+        {children}
+      </a>
+    );
+  }
 
   if (external) {
     return (

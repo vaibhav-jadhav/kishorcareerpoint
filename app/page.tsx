@@ -1,23 +1,21 @@
-import {
-  CourseGrid,
-  EnquiryBand,
-  Hero,
-  NewsPreview,
-  RankerGrid,
-  TestimonialList,
-  WhyUs,
-} from "@/components/home/HomeSections";
+import { CourseSection } from "@/components/home/CourseSection";
+import { GoalSelector } from "@/components/home/GoalSelector";
+import { JourneySection } from "@/components/home/JourneySection";
+import { HeroSection } from "@/components/home/HeroSection";
+import { IntroSection } from "@/components/home/IntroSection";
+import { RecordSection } from "@/components/home/RecordSection";
+import { TestimonialList } from "@/components/home/TestimonialSection";
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <CourseGrid />
-      <WhyUs />
-      <RankerGrid />
+      <HeroSection />
+      <IntroSection />
+      <GoalSelector />
+      <CourseSection />
+      <JourneySection />
+      <RecordSection />
       <TestimonialList />
-      <NewsPreview />
-      <EnquiryBand />
     </>
   );
 }

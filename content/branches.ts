@@ -6,6 +6,8 @@ export type Branch = {
   phone: string;
   phoneDisplay: string;
   email: string;
+  /** Photo of KCP's own building. Only set for branches KCP owns; rented branches have none. */
+  image?: string;
   mapEmbedUrl: string;
   directionsUrl: string;
 };
@@ -26,6 +28,7 @@ export const branches: Branch[] = [
     phone: "9370145659",
     phoneDisplay: "93 7014 5659",
     email: "contact@kishorcareerpoint.com",
+    image: "/building/ichalkaranji.png",
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.7558682284016!2d74.46779717580075!3d16.689095722544565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc0e273f9c92a37%3A0xe779a417ba4465d5!2sKishor%20Career%20Point!5e0!3m2!1sen!2sin!4v1765048151678!5m2!1sen!2sin",
     directionsUrl:
@@ -54,6 +57,7 @@ export const branches: Branch[] = [
     phone: "8483055112",
     phoneDisplay: "84 8305 5112",
     email: "contact@kishorcareerpoint.com",
+    image: "/building/sangli.png",
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.808071404551!2d74.5727447758029!3d16.83587491845758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc12326dd50a4f5%3A0xa3d1d9fd58e65985!2sKishor%20Career%20Point%20(KCP)!5e0!3m2!1sen!2sin!4v1765048528335!5m2!1sen!2sin",
     directionsUrl:
