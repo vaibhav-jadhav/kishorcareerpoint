@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { Confetti } from "@/components/ui/Confetti";
 import { JourneyArt } from "@/components/home/JourneyScenes";
 import { Reveal } from "@/components/ui/Reveal";
 import { journeyHeading, journeySteps } from "@/content/journey";
@@ -79,6 +80,16 @@ export function JourneySection() {
   const trackRef = useRef<HTMLSpanElement>(null);
   const nodeRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [reached, setReached] = useState(0);
+  const [burst, setBurst] = useState(0);
+  const celebrated = useRef(false);
+
+  // Reaching the last step is the success moment: shower the page with confetti once.
+  useEffect(() => {
+    if (reached === journeySteps.length && !celebrated.current) {
+      celebrated.current = true;
+      setBurst(1);
+    }
+  }, [reached]);
 
   // The line fills and the numbered nodes light up as the visitor scrolls down.
   useEffect(() => {
@@ -131,6 +142,7 @@ export function JourneySection() {
       className="relative overflow-hidden bg-gradient-to-b from-[#4aa3f2] via-[#2f8ae6] to-[#1f78d6] py-10 text-white sm:py-14"
       aria-labelledby="journey-heading"
     >
+      <Confetti fireKey={burst} />
       <ZigZag position="top" fill="#f4f7fb" />
       <ZigZag position="bottom" fill="#ffffff" />
 

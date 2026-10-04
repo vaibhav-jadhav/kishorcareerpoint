@@ -147,6 +147,27 @@ body {
   }
 }
 
+@keyframes kcp-confetti {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--dx, 0), 110vh, 0) rotate(var(--rot, 720deg));
+    opacity: 0;
+  }
+}
+
+.anim-confetti {
+  animation-name: kcp-confetti;
+  animation-timing-function: cubic-bezier(0.25, 0.6, 0.45, 1);
+  animation-fill-mode: both;
+  will-change: transform;
+}
+
 .anim-rise {
   animation: kcp-rise 0.45s ease-out both;
 }
@@ -274,6 +295,7 @@ body {
   }
 
   .anim-rise,
+  .anim-confetti,
   .anim-float,
   .anim-float-slow,
   .anim-spin-slow,
