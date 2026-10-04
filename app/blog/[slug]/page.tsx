@@ -29,9 +29,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) notFound();
 
   return (
-    <Container className="py-14">
-      <Link href="/blog" className="text-sm font-semibold text-brand">
-        All articles
+    <Container className="py-10 sm:py-14">
+      <Link href="/blog" className="inline-flex items-center gap-1.5 text-sm font-bold text-brand hover:underline">
+        <span aria-hidden="true">←</span> All articles
       </Link>
       <div className="mt-6">
         <BlogArticle post={post} />
