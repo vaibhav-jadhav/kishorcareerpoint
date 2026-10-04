@@ -147,23 +147,37 @@ body {
   }
 }
 
+/*
+ * A piece falls 110vh, so keyframe % is roughly (screen height % x 0.91).
+ * 75% visible down to ~30% of the screen, 50% at ~50%, 10% by the
+ * bottom 10%, and gone at the bottom edge.
+ */
 @keyframes kcp-confetti {
   0% {
     transform: translate3d(0, 0, 0) rotate(0deg);
-    opacity: 1;
+    opacity: 0.75;
   }
-  85% {
-    opacity: 1;
+  27% {
+    opacity: 0.75;
+  }
+  45% {
+    opacity: 0.5;
+  }
+  82% {
+    opacity: 0.1;
+  }
+  91%,
+  100% {
+    opacity: 0;
   }
   100% {
     transform: translate3d(var(--dx, 0), 110vh, 0) rotate(var(--rot, 720deg));
-    opacity: 0;
   }
 }
 
 .anim-confetti {
   animation-name: kcp-confetti;
-  animation-timing-function: cubic-bezier(0.25, 0.6, 0.45, 1);
+  animation-timing-function: linear;
   animation-fill-mode: both;
   will-change: transform;
 }

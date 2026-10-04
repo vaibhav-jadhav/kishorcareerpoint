@@ -23,8 +23,8 @@ function makePieces(count: number): Piece[] {
         width: `${size}px`,
         height: `${round ? size : size * 1.6}px`,
         backgroundColor: colors[Math.floor(Math.random() * colors.length)],
-        animationDelay: `${Math.random() * 0.9}s`,
-        animationDuration: `${2.8 + Math.random() * 2}s`,
+        animationDelay: `${Math.random() * 0.7}s`,
+        animationDuration: `${1.8 + Math.random() * 1.4}s`,
         ["--dx" as string]: `${(Math.random() - 0.5) * 220}px`,
         ["--rot" as string]: `${360 + Math.random() * 720}deg`,
       },
@@ -43,7 +43,7 @@ export function Confetti({ fireKey }: { fireKey: number }) {
     if (fireKey <= 0) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     setPieces(makePieces(window.innerWidth < 640 ? 50 : 90));
-    const timer = window.setTimeout(() => setPieces([]), 6500);
+    const timer = window.setTimeout(() => setPieces([]), 4500);
     return () => window.clearTimeout(timer);
   }, [fireKey]);
 
