@@ -22,7 +22,7 @@ export type JourneyStep = {
   photos: JourneyPhoto[];
 };
 
-export const journeyHeading = "Student journey at KCP";
+export const journeyHeading = "Student Journey at Kishor Career Point";
 
 function rankerPhoto(name: string): JourneyPhoto {
   const ranker = rankers.find((item) => item.name === name);

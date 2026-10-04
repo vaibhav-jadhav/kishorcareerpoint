@@ -76,6 +76,7 @@ function photoClass(photo: JourneyPhoto, count: number, index: number) {
 export function JourneySection() {
   const listRef = useRef<HTMLOListElement>(null);
   const fillRef = useRef<HTMLSpanElement>(null);
+  const trackRef = useRef<HTMLSpanElement>(null);
   const nodeRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [reached, setReached] = useState(0);
 
@@ -87,13 +88,17 @@ export function JourneySection() {
       frame = 0;
       const list = listRef.current;
       const fill = fillRef.current;
-      if (!list || !fill) return;
+      const track = trackRef.current;
+      if (!list || !fill || !track) return;
 
       const marker = window.innerHeight * 0.6;
       const listTop = list.getBoundingClientRect().top;
-      const first = nodeRefs.current[0]?.getBoundingClientRect();
-      const startOffset = first ? first.top - listTop + first.height / 2 : 20;
-      const height = Math.max(0, Math.min(list.offsetHeight - startOffset, marker - listTop - startOffset));
+      const lineTop = 20; // matches the `top-5` offset of the line
+      const last = nodeRefs.current[nodeRefs.current.length - 1]?.getBoundingClientRect();
+      // The line ends at the centre of the last numbered node and goes no further.
+      const lineLength = last ? Math.max(0, last.top - listTop + last.height / 2 - lineTop) : 0;
+      track.style.height = `${lineLength}px`;
+      const height = Math.max(0, Math.min(lineLength, marker - listTop - lineTop));
       fill.style.height = `${height}px`;
 
       let count = 0;
@@ -110,7 +115,11 @@ export function JourneySection() {
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+    // Images and fonts can change the list height after first paint.
+    const observer = new ResizeObserver(onScroll);
+    if (listRef.current) observer.observe(listRef.current);
     return () => {
+      observer.disconnect();
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (frame) window.cancelAnimationFrame(frame);
@@ -143,7 +152,8 @@ export function JourneySection() {
         <ol ref={listRef} className="relative mt-7 space-y-6 sm:mt-9 sm:space-y-7">
           {/* Timeline line and its scroll-driven fill */}
           <span
-            className="absolute bottom-5 left-[1.125rem] top-5 w-0.5 -translate-x-1/2 rounded-full bg-white/20 lg:left-1/2"
+            ref={trackRef}
+            className="absolute left-[1.125rem] top-5 w-0.5 -translate-x-1/2 rounded-full bg-white/20 lg:left-1/2"
             aria-hidden="true"
           />
           <span
