@@ -203,6 +203,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
               className="inline-flex items-center gap-1.5 text-sm font-bold text-brand after:absolute after:inset-0 after:content-['']"
             >
               View course
+              <span className="sr-only"> {course.name}</span>
               <svg
                 viewBox="0 0 20 20"
                 fill="none"

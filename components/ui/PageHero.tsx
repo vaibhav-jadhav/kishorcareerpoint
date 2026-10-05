@@ -2,11 +2,14 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
 type PageHeroProps = {
+  /** Short name, used in the breadcrumb. */
   title: string;
+  /** Full page heading (the h1). Defaults to the title. Search engines like 20+ characters. */
+  heading?: string;
   description?: string;
 };
 
-export function PageHero({ title, description }: PageHeroProps) {
+export function PageHero({ title, heading, description }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-brand/10 bg-gradient-to-b from-sky to-white">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -22,8 +25,8 @@ export function PageHero({ title, description }: PageHeroProps) {
           <span aria-hidden="true"> / </span>
           <span className="text-ink">{title}</span>
         </nav>
-        <h1 className="mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-brand-dark sm:text-5xl">
-          {title}
+        <h1 className="mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
+          {heading ?? title}
         </h1>
         <span className="mt-4 block h-1.5 w-16 rounded-full bg-sun" aria-hidden="true" />
         {description ? (

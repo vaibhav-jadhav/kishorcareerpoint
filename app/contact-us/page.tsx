@@ -17,7 +17,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <PageHero title="Contact Us" />
+      <PageHero title="Contact Us" heading="Contact Kishor Career Point" />
       <section className="bg-white py-12 sm:py-16">
         <Container>
           <Reveal>

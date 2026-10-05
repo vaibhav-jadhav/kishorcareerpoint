@@ -26,8 +26,8 @@ export function BranchesHero() {
             <span aria-hidden="true"> / </span>
             <span className="text-ink">Branches</span>
           </nav>
-          <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-brand-dark sm:text-5xl">
-            Branches
+          <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-brand-dark sm:text-4xl">
+            Kishor Career Point Branches
           </h1>
           <span className="mx-auto mt-4 block h-1.5 w-16 rounded-full bg-sun" aria-hidden="true" />
           <p className="mt-4 text-sm leading-7 text-muted sm:text-base">{branchesIntro}</p>

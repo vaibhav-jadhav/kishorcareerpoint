@@ -13,7 +13,7 @@ export const metadata: Metadata = pageMetadata({ ...seo.results, path: "/results
 export default function ResultsPage() {
   return (
     <>
-      <PageHero title="Results" description={rankersIntro} />
+      <PageHero title="Results" heading="Results of Kishor Career Point Students" description={rankersIntro} />
       <section className="bg-surface py-12 sm:py-16">
         <Container>
           <ResultsExplorer />

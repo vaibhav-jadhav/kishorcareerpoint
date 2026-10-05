@@ -39,7 +39,6 @@ export const footerColumns: FooterColumn[] = [
       { label: "About KCP", href: "/about-us" },
       { label: "Our Branches", href: "/branches" },
       { label: "Contact Us", href: "/contact-us" },
-      { label: "Blog", href: "/blog" },
       { label: "Careers", href: "/careers" },
     ],
   },

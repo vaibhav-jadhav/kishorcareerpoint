@@ -20,7 +20,7 @@ A Next.js marketing site. React, TypeScript, Tailwind, App Router. Content lives
 
 - Do not invent rankers, scores, branches, phone numbers, or testimonials.
 - Ranker portraits in `public/rankers/`, course banners in `public/courses/`, campus photos in `public/about/`, and result posters in `public/results/` are real KCP images and must stay on the pages that show them. Do not replace them with stock photos.
-- Keep public URLs stable: `/about-us`, `/courses`, `/results`, `/branches`, `/contact-us`, `/blog/kcp-blog`.
+- Keep public URLs stable: `/about-us`, `/courses`, `/results`, `/branches`, `/contact-us`. The site has no blog; `/blog` and `/kcp-blog` redirect to the home page.
 - External links that must stay: Talent Hunt Google Form, Olympiad site, WhatsApp, Facebook, Instagram, YouTube. They are defined once in `content/site.ts`.
 - Careers stays an empty list until a real role is provided. Do not add sample jobs.
 - Fix a spelling mistake in existing copy only when it is obviously a typo. Do not rewrite the institute’s voice.
@@ -38,10 +38,6 @@ A Next.js marketing site. React, TypeScript, Tailwind, App Router. Content lives
 1. Add the route under `app/<path>/page.tsx` with a `metadata` export.
 2. Add the path to `app/sitemap.ts` and, if it belongs in the menu, to `content/navigation.ts`.
 3. Reuse `PageHero`, `Container`, and existing sections instead of new one-off layout systems.
-
-## Adding a blog post
-
-Append one object to `posts` in `content/blog.ts`. Required fields: `slug`, `title`, `description`, `category`, `publishedAt`, `updatedAt`, `sections`. Dates are `YYYY-MM-DD`. The dynamic route reads this array. Do not hardcode the article in the page file.
 
 ## Enquiry form
 

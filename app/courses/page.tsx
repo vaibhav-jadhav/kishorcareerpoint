@@ -16,7 +16,7 @@ export const metadata: Metadata = pageMetadata({ ...seo.courses, path: "/courses
 export default function CoursesPage() {
   return (
     <>
-      <PageHero title="Courses" />
+      <PageHero title="Courses" heading="Courses at Kishor Career Point" />
       <section className="bg-surface py-12 sm:py-16">
         <Container>
           <Reveal className="mx-auto max-w-3xl text-center">

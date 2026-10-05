@@ -57,10 +57,8 @@ Routes:
 | `/branches` | Five branches with maps |
 | `/contact-us` | Phone, email, enquiry form |
 | `/careers` | Hiring. Empty until a role is added |
-| `/blog` | Article list |
-| `/blog/kcp-blog` | NEET 2025 guide |
 
-`/kcp-blog` redirects to `/blog/kcp-blog` so the old WordPress post URL still works.
+The site has no blog. `/kcp-blog`, `/blog` and `/blog/*` redirect to the home page so old WordPress links still land somewhere useful.
 
 ## Editing content
 
@@ -75,7 +73,6 @@ Change the files in `content/`. You do not need to touch a page component for a 
 | Rankers and result categories | `content/rankers.ts` |
 | Student quotes | `content/testimonials.ts` |
 | About, mission, vision, values | `content/about.ts` |
-| Blog posts | `content/blog.ts` |
 | Careers copy and open roles | `content/careers.ts` |
 
 To publish a job, add an object to `openings` in `content/careers.ts`:
@@ -90,8 +87,6 @@ To publish a job, add an object to `openings` in `content/careers.ts`:
 ```
 
 The careers page lists roles when that array is not empty.
-
-To add a blog post, append a `BlogPost` in `content/blog.ts`. The blog index and `/blog/[slug]` pick it up. `generateStaticParams` builds a page for every slug.
 
 ## Enquiry email
 
@@ -122,6 +117,5 @@ Add the same variables in the Vercel project settings before going live.
 - Result posters live in `public/results/` (`img/projects/project-1.jpg` through `project-7.jpg`).
 - Ranker portraits live in `public/rankers/`. Course banners live in `public/courses/`. The About page photos live in `public/about/`.
 - The old theme’s skill-block photo and the three homepage news thumbnails are Porto or logo placeholders, so they are not used.
-- Placeholder blog cards on the old homepage (dated February, with no articles behind them) are not republished. The blog shows the one real post from the database.
 - Lorem ipsum quotes on the old courses page are not republished. Testimonials are the two quotes from the homepage.
 - Director’s Message is not a route. In WordPress that template was a copy of the homepage and the menu item was turned off.

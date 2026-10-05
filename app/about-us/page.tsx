@@ -18,7 +18,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <PageHero title="About Us" description="About Kishor Career Point" />
+      <PageHero title="About Us" heading="About Kishor Career Point" />
 
       <section className="bg-white py-12 sm:py-16">
         <Container className="grid items-center gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-14">

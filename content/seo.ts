@@ -40,9 +40,4 @@ export const seo = {
     description:
       "Kishor Career Point hires faculty and staff who care about students and the craft of teaching. Open roles are listed here when we are hiring.",
   },
-  blog: {
-    title: "Blog – Exam Guides & Preparation Tips",
-    description:
-      "Articles, exam guides and preparation tips for NEET, JEE and other entrance exams from the Kishor Career Point team.",
-  },
 } as const;

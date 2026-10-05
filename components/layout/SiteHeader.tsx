@@ -145,7 +145,7 @@ export function SiteHeader() {
         >
           <Image
             src="/brand/logo.png"
-            alt=""
+            alt="Kishor Career Point logo"
             width={120}
             height={60}
             priority

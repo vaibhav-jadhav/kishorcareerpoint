@@ -47,7 +47,7 @@ export function SiteFooter() {
         {/* Left: identity */}
         <div>
           <Link href="/" className="inline-flex items-center gap-2.5" aria-label={`${site.name} home`}>
-            <Image src="/brand/logo.png" alt="" width={120} height={60} className="h-12 w-auto" />
+            <Image src="/brand/logo.png" alt="Kishor Career Point logo" width={120} height={60} className="h-12 w-auto" />
             <span className="text-xl font-extrabold tracking-tight text-brand-dark">
               Kishor Career Point
             </span>
