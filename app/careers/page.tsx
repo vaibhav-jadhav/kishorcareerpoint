@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { careers, openings } from "@/content/careers";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Careers",
-  description: careers.intro,
-};
+export const metadata: Metadata = pageMetadata({ ...seo.careers, path: "/careers" });
 
 export default function CareersPage() {
   return (

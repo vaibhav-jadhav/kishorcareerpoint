@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import { ResultsExplorer } from "@/components/results/ResultsExplorer";
 import { Container } from "@/components/ui/Container";
 import { CtaBand } from "@/components/ui/CtaBand";
@@ -6,10 +8,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { rankersIntro } from "@/content/rankers";
 import { site } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Results",
-  description: rankersIntro,
-};
+export const metadata: Metadata = pageMetadata({ ...seo.results, path: "/results" });
 
 export default function ResultsPage() {
   return (

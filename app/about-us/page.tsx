@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { about } from "@/content/about";
 import { branches } from "@/content/branches";
@@ -6,10 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
 
-export const metadata: Metadata = {
-  title: "About Us",
-  description: about.short,
-};
+export const metadata: Metadata = pageMetadata({ ...seo.about, path: "/about-us" });
 
 /** Real KCP photos that stay on this page. The old building photo is replaced by the new campus photo. */
 const photoStrip = about.gallery.filter((photo) => !photo.src.endsWith("/building.jpg"));

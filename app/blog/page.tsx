@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/ui/PageHero";
 import { blogIntro, formatPostDate, posts } from "@/content/blog";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: blogIntro,
-};
+export const metadata: Metadata = pageMetadata({ ...seo.blog, path: "/blog" });
 
 export default function BlogPage() {
   return (

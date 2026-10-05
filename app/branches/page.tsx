@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import { BranchList } from "@/components/branches/BranchList";
 import { BranchesHero } from "@/components/branches/BranchesHero";
 import { Container } from "@/components/ui/Container";
-import { branchesIntro } from "@/content/branches";
 
-export const metadata: Metadata = {
-  title: "Branches",
-  description: branchesIntro,
-};
+export const metadata: Metadata = pageMetadata({ ...seo.branches, path: "/branches" });
 
 export default function BranchesPage() {
   return (

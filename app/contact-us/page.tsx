@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -8,10 +10,7 @@ import { enquiryCopy } from "@/content/about";
 import { branches, otherBranchesIntro } from "@/content/branches";
 import { site, telHref } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description: enquiryCopy.contactBody,
-};
+export const metadata: Metadata = pageMetadata({ ...seo.contact, path: "/contact-us" });
 
 export default function ContactPage() {
   const others = branches.filter((branch) => !branch.isMain);

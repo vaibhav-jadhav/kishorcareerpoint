@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { seo } from "@/content/seo";
+import { pageMetadata } from "@/lib/seo";
 import { CourseBanner, courseAccents } from "@/components/home/CourseSection";
 import { TestimonialList } from "@/components/home/TestimonialSection";
 import { Button } from "@/components/ui/Button";
@@ -9,10 +11,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { courses, coursesPageIntro } from "@/content/courses";
 import { site, whatsappLink } from "@/content/site";
 
-export const metadata: Metadata = {
-  title: "Courses",
-  description: coursesPageIntro,
-};
+export const metadata: Metadata = pageMetadata({ ...seo.courses, path: "/courses" });
 
 export default function CoursesPage() {
   return (

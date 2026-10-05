@@ -5,7 +5,11 @@ import { MobileTabBar } from "@/components/layout/MobileTabBar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { seo } from "@/content/seo";
 import { site } from "@/content/site";
+import { shareImage } from "@/lib/seo";
+import { organizationSchema } from "@/lib/structuredData";
 import "./globals.css";
 
 const sans = Plus_Jakarta_Sans({
@@ -17,31 +21,45 @@ const sans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: site.name,
+    default: seo.home.title,
     template: `%s | ${site.name}`,
   },
-  description: site.description,
+  description: seo.home.description,
+  applicationName: site.name,
+  category: "education",
   keywords: [
     "Kishor Career Point",
     "KCP",
-    "JEE",
-    "NEET",
+    "NEET coaching",
+    "JEE coaching",
     "MHT-CET",
-    "Foundation",
+    "Foundation classes",
     "Ichalkaranji",
+    "Kolhapur",
+    "Sangli",
+    "Karad",
+    "Hatkanangale",
   ],
   openGraph: {
-    title: site.name,
-    description: site.description,
-    url: site.url,
+    title: seo.home.title,
+    description: seo.home.description,
+    url: "/",
     siteName: site.name,
     locale: "en_IN",
     type: "website",
+    images: [shareImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seo.home.title,
+    description: seo.home.description,
+    images: ["/twitter-image"],
   },
 };
 
 export const viewport: Viewport = {
   viewportFit: "cover",
+  themeColor: "#005aaa",
 };
 
 export default function RootLayout({
@@ -50,7 +68,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" className={sans.variable}>
+    <html lang="en-IN" className={sans.variable}>
       <body className="min-h-screen pb-[calc(4rem+env(safe-area-inset-bottom))] xl:pb-0 bg-page font-sans text-ink antialiased">
         <a
           href="#main"
@@ -58,6 +76,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <JsonLd data={organizationSchema()} />
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
