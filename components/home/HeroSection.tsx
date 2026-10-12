@@ -68,11 +68,7 @@ function ArrowUpRight() {
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-sky">
-      <div className="pointer-events-none absolute -left-32 -top-32 h-96 w-96 rounded-full bg-white/60" />
-      <div className="pointer-events-none absolute -bottom-40 right-1/3 h-[28rem] w-[28rem] rounded-full bg-brand/5" />
-      <div className="pointer-events-none absolute -right-24 top-10 h-72 w-72 rounded-full border-[28px] border-brand/5" />
-
-      <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,25rem)_minmax(0,28rem)] lg:justify-center lg:gap-14 lg:py-8">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 pb-8 pt-5 sm:px-6 lg:grid-cols-[minmax(0,25rem)_minmax(0,28rem)] lg:justify-center lg:gap-14 lg:pb-10">
         <div>
           <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-brand-dark sm:text-3xl">
             {heroContent.headline}{" "}

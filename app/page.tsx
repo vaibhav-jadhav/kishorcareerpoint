@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BranchMapSection } from "@/components/home/BranchMapSection";
 import { CourseSection } from "@/components/home/CourseSection";
+import { FounderSection } from "@/components/home/FounderSection";
 import { GoalSelector } from "@/components/home/GoalSelector";
 import { JourneySection } from "@/components/home/JourneySection";
 import { HeroSection } from "@/components/home/HeroSection";
@@ -21,10 +22,11 @@ export default function HomePage() {
     <>
       <IntroSection />
       <HeroSection />
-      <BranchMapSection />
+      <FounderSection />
       <GoalSelector />
       <CourseSection />
       <JourneySection />
+      <BranchMapSection />
       <RecordSection />
       <TestimonialList />
     </>

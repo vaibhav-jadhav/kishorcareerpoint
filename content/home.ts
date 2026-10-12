@@ -10,12 +10,6 @@ export type HeroStat = {
   text: string;
 };
 
-export const introContent = {
-  tagline: "Your Ambition Deserves the Right Direction.",
-  support:
-    "Prepare for JEE, NEET and beyond with Kishor Career Point, where clear concepts, purposeful learning and dedicated guidance shape your preparation.",
-};
-
 export const heroContent = {
   headline: "Empowering aspirants to become future",
   headlineAccent: "IITians & Doctors",

@@ -122,7 +122,7 @@ export function BranchMapSection() {
   const mainPoint = layout[main.id];
 
   return (
-    <section className="relative overflow-hidden bg-surface py-10 sm:py-14" aria-labelledby="branch-map-heading">
+    <section className="relative overflow-hidden bg-white py-10 sm:py-14" aria-labelledby="branch-map-heading">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <span className="anim-float-slow absolute -left-20 top-6 h-56 w-56 rounded-full bg-brand/5" />
         <span
