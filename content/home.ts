@@ -12,6 +12,8 @@ export type HeroStat = {
 
 export const founderMessage = {
   heading: "A message from our founder",
+  name: "Vishal D. Pagade",
+  role: "Founder",
   text: "At Kishor Career Point, we believe every student deserves clear explanations, thoughtful guidance and the opportunity to improve. Our purpose is to build strong concepts, nurture confidence and help students move steadily towards their goals.",
 };
 

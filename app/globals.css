@@ -65,6 +65,19 @@ h3 {
   letter-spacing: -0.01em;
 }
 
+/* Founder banner: the sharp photo dissolves into the blurred copy behind it. */
+.founder-fade {
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent 100%);
+}
+
+@media (min-width: 768px) {
+  .founder-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent 24%, #000 64%);
+    mask-image: linear-gradient(to right, transparent 24%, #000 64%);
+  }
+}
+
 ::selection {
   background: var(--brand-soft);
   color: var(--ink);
