@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { MobileTabBar } from "@/components/layout/MobileTabBar";
+import { ServiceWorkerRegister } from "@/components/layout/ServiceWorkerRegister";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { WhatsAppButton } from "@/components/layout/WhatsAppButton";
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
   description: seo.home.description,
   applicationName: site.name,
   category: "education",
+  appleWebApp: { capable: true, title: site.shortName, statusBarStyle: "default" },
   keywords: [
     "Kishor Career Point",
     "KCP",
@@ -88,6 +90,7 @@ export default function RootLayout({
         <SiteFooter />
         <WhatsAppButton />
         <MobileTabBar />
+        <ServiceWorkerRegister />
       </body>
     </html>
   );
