@@ -1,6 +1,8 @@
 export type Branch = {
   id: string;
   name: string;
+  /** Short name for the small tags on the home page map, when the full name is long. */
+  mapName?: string;
   isMain: boolean;
   address: string;
   phone: string;
@@ -19,10 +21,10 @@ export type Branch = {
 };
 
 export const branchesIntro =
-  "Kishor Career Point (KCP) is centered in Ichalkaranji, which serves as our main branch and administrative hub. In addition to Ichalkaranji, KCP has branches in Kolhapur, Sangli, Karad, and Hatkanangale, each providing the same high-quality coaching, experienced faculty, and student-focused support. Contact your nearest branch for course details, schedules, and admissions information.";
+  "Kishor Career Point (KCP) is centered in Ichalkaranji, which serves as our main branch and administrative hub. In addition to Ichalkaranji, KCP has branches at Tekit Mall Ichalkaranji, Kolhapur, Sangli, Karad, and Hatkanangale, each providing the same high-quality coaching, experienced faculty, and student-focused support. Contact your nearest branch for course details, schedules, and admissions information.";
 
 export const otherBranchesIntro =
-  "In addition to our main branch in Ichalkaranji, we have branches in Kolhapur, Sangli, Karad, and Hatkanangale. Each location offers the same high-quality coaching and support.";
+  "In addition to our main branch in Ichalkaranji, we have branches at Tekit Mall Ichalkaranji, Kolhapur, Sangli, Karad, and Hatkanangale. Each location offers the same high-quality coaching and support.";
 
 export const branches: Branch[] = [
   {
@@ -41,6 +43,26 @@ export const branches: Branch[] = [
       "https://www.google.com/maps/dir/?api=1&destination=16.688901122541733,74.47085036378876",
     lat: 16.6889,
     lng: 74.4709,
+  },
+  {
+    id: "tekit-mall",
+    name: "Tekit Mall Ichalkaranji",
+    mapName: "Tekit Mall",
+    isMain: false,
+    address: "Tekit Mall, Panchvati Talkies Road, Tambe Mala, Ichalkaranji, Maharashtra 416115",
+    // Same number as the main centre until this branch has its own line.
+    phone: "9370145659",
+    phoneDisplay: "93 7014 5659",
+    email: "contact@kishorcareerpoint.com",
+    mapEmbedUrl: "https://www.google.com/maps?q=16.6890198,74.4537751&output=embed",
+    directionsUrl:
+      "https://www.google.com/maps/dir/?api=1&destination=16.6890198,74.4537751",
+    lat: 16.6890198,
+    lng: 74.4537751,
+    // About 2 km from the main centre, so the schematic home page map draws it a little
+    // further west to keep the two pins apart. Directions use the real location.
+    mapLat: 16.689,
+    mapLng: 74.407,
   },
   {
     id: "kolhapur",
@@ -115,7 +137,7 @@ export const branches: Branch[] = [
 export const branchMapContent = {
   eyebrow: "Find us near you",
   heading: "5+ branches across Western Maharashtra",
-  lead: "Ichalkaranji · Kolhapur · Sangli · Karad · Hatkanangale",
+  lead: "Ichalkaranji · Tekit Mall Ichalkaranji · Kolhapur · Sangli · Karad · Hatkanangale",
   mainBadge: "Main centre",
   mapNote: "Use Directions for the exact route.",
 };

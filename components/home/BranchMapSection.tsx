@@ -11,7 +11,7 @@ import { MAP_H, MAP_W, inset, kcpDistricts, projectLatLng } from "@/components/h
  * Branch finder. The list is the main control (name, call, directions), and the
  * map is a synced aid for orientation. Numbers on the map match the list.
  * The map is schematic: Karad is drawn near Urun-Islampur (see mapLat/mapLng in
- * content/branches.ts) so the five pins fit together.
+ * content/branches.ts) so the pins fit together.
  */
 
 type Point = { lat: number; lng: number };
@@ -34,7 +34,8 @@ function distanceKm(a: Point, b: Point) {
 /** Where the name tag sits relative to its pin, chosen so tags never overlap. */
 const labelSide: Record<string, "above" | "below" | "left" | "right"> = {
   ichalkaranji: "below",
-  kolhapur: "right",
+  "tekit-mall": "left",
+  kolhapur: "above",
   hatkanangale: "above",
   sangli: "left",
   karad: "right",
@@ -272,7 +273,7 @@ export function BranchMapSection() {
                         : "border border-line bg-white text-ink"
                     }`}
                   >
-                    {branch.name}
+                    {branch.mapName ?? branch.name}
                   </span>
                 </button>
               );

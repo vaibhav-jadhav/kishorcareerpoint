@@ -28,7 +28,7 @@ export const seo = {
   branches: {
     title: "Branches: Ichalkaranji, Kolhapur, Sangli",
     description:
-      "Find Kishor Career Point branches in Ichalkaranji (main), Kolhapur, Sangli, Karad and Hatkanangale, with addresses, phone numbers and map directions.",
+      "Find Kishor Career Point branches in Ichalkaranji (main and Tekit Mall), Kolhapur, Sangli, Karad and Hatkanangale, with addresses, phone numbers and map directions.",
   },
   contact: {
     title: "Contact Us: Call or WhatsApp",
