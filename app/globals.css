@@ -2,6 +2,7 @@
 
 @theme {
   --font-sans: var(--font-sans-app), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-app), var(--font-sans-app), ui-sans-serif, system-ui, sans-serif;
   --color-brand: #005aaa;
   --color-brand-dark: #04284a;
   --color-accent: #e4570e;
@@ -54,6 +55,14 @@ html {
 body {
   background: var(--page);
   color: var(--ink);
+}
+
+/* Headlines use the display face; body text stays in the sans face. */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
 }
 
 ::selection {

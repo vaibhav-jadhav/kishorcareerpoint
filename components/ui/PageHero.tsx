@@ -11,7 +11,7 @@ type PageHeroProps = {
 
 export function PageHero({ title, heading, description }: PageHeroProps) {
   return (
-    <section className="relative overflow-hidden border-b border-brand/10 bg-gradient-to-b from-sky to-white">
+    <section className="relative overflow-hidden border-b border-brand/10 bg-sky">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <span className="absolute -right-20 -top-24 h-72 w-72 rounded-full border-[30px] border-brand/5" />
         <span className="absolute -bottom-24 left-1/3 h-56 w-56 rounded-full bg-sun/15" />

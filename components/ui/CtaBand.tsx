@@ -12,7 +12,7 @@ export function CtaBand({ title, body, whatsappMessage }: CtaBandProps) {
   return (
     <section className="py-12 sm:py-16">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-brand-dark px-6 py-10 text-white sm:px-12 sm:py-12">
+        <div className="relative overflow-hidden rounded-3xl bg-brand px-6 py-10 text-white sm:px-12 sm:py-12">
           <span
             className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full border-[28px] border-white/10"
             aria-hidden="true"

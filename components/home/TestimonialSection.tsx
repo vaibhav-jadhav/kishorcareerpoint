@@ -49,7 +49,7 @@ function ReviewCard({ item }: { item: Testimonial }) {
         ) : (
           <span
             aria-hidden="true"
-            className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-white bg-gradient-to-br from-[#4aa3f2] to-brand text-xl font-extrabold text-white shadow-sm"
+            className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-white bg-brand text-xl font-extrabold text-white shadow-sm"
           >
             {initials(item.name)}
           </span>

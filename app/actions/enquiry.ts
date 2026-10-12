@@ -96,7 +96,7 @@ export async function submitEnquiry(
       to: [inbox],
       reply_to: email,
       subject: `Website enquiry from ${name}`,
-      text: [`Name: ${name}`, `Email: ${email}`, `Phone: ${phone || "—"}`, "", message].join(
+      text: [`Name: ${name}`, `Email: ${email}`, `Phone: ${phone || "Not given"}`, "", message].join(
         "\n",
       ),
     }),

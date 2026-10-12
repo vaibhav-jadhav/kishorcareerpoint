@@ -6,7 +6,7 @@ import { site } from "@/content/site";
 export function IntroSection() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-br from-brand-dark via-[#064a92] to-brand py-6 text-white sm:py-8"
+      className="relative overflow-hidden bg-brand-dark py-6 text-white sm:py-8"
       aria-labelledby="intro-heading"
     >
       {/* Soft rings and a dot grid add depth to the flat blue. */}

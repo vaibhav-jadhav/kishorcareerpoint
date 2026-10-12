@@ -35,7 +35,7 @@ export default function AboutPage() {
 
           {campus?.image ? (
             <Reveal delay={120}>
-              <figure className="relative mx-auto max-w-sm overflow-hidden rounded-3xl bg-gradient-to-b from-sky to-[#d3e8f9] px-6 pt-8">
+              <figure className="relative mx-auto max-w-sm overflow-hidden rounded-3xl bg-sky px-6 pt-8">
                 <span
                   className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-sun/30"
                   aria-hidden="true"
@@ -101,7 +101,7 @@ export default function AboutPage() {
               </article>
             </Reveal>
             <Reveal delay={120} className="h-full">
-              <article className="relative h-full overflow-hidden rounded-3xl bg-gradient-to-br from-brand to-brand-dark p-7 text-white sm:p-8">
+              <article className="relative h-full overflow-hidden rounded-3xl bg-brand p-7 text-white sm:p-8">
                 <span
                   className="absolute -bottom-12 -right-10 h-40 w-40 rounded-full border-[22px] border-white/10"
                   aria-hidden="true"

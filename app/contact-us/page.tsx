@@ -55,7 +55,7 @@ export default function ContactPage() {
                 </dl>
               </div>
 
-              <div className="relative overflow-hidden bg-gradient-to-br from-brand to-brand-dark p-7 text-white sm:p-10">
+              <div className="relative overflow-hidden bg-brand p-7 text-white sm:p-10">
                 <span
                   className="pointer-events-none absolute -bottom-16 -right-12 h-48 w-48 rounded-full border-[24px] border-white/10"
                   aria-hidden="true"

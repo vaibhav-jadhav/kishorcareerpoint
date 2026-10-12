@@ -6,12 +6,12 @@
  */
 export const seo = {
   home: {
-    title: "Kishor Career Point – NEET, JEE & Foundation Coaching in Ichalkaranji",
+    title: "Kishor Career Point: NEET, JEE & Foundation Coaching in Ichalkaranji",
     description:
       "Kishor Career Point (KCP) offers NEET (UG), JEE (Main + Advanced), MHT-CET and Foundation (8th–10th) coaching in Ichalkaranji, Kolhapur, Sangli, Karad and Hatkanangale.",
   },
   about: {
-    title: "About Us – Mission, Vision & Values",
+    title: "About Us: Mission, Vision & Values",
     description:
       "Kishor Career Point was established in Maharashtra in 2016 to guide students for NEET, JEE and Foundation exams with experienced faculty and focused teaching.",
   },
@@ -21,17 +21,17 @@ export const seo = {
       "Explore KCP courses for JEE (Main + Advanced), NEET (UG), MHT-CET and Foundation (8th–10th): experienced faculty, structured syllabi and result-driven coaching.",
   },
   results: {
-    title: "Results – NEET, JEE, IISER & MHT-CET",
+    title: "Results: NEET, JEE, IISER & MHT-CET",
     description:
       "See the top rankers and results of Kishor Career Point students in NEET, JEE, IISER and MHT-CET, with posters and admissions to leading institutes.",
   },
   branches: {
-    title: "Branches – Ichalkaranji, Kolhapur, Sangli",
+    title: "Branches: Ichalkaranji, Kolhapur, Sangli",
     description:
       "Find Kishor Career Point branches in Ichalkaranji (main), Kolhapur, Sangli, Karad and Hatkanangale, with addresses, phone numbers and map directions.",
   },
   contact: {
-    title: "Contact Us – Call or WhatsApp",
+    title: "Contact Us: Call or WhatsApp",
     description:
       "Call or WhatsApp Kishor Career Point for course, admission and campus visit enquiries. Head office: near Niramay Hospital, Ring Road, Ichalkaranji.",
   },

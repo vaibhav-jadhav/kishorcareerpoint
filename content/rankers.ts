@@ -21,19 +21,19 @@ export const rankers: Ranker[] = [
   {
     name: "Kartik Satpute",
     exam: "neet",
-    lines: ["NEET 2025 — Score 705", "AIIMS NAGPUR"],
+    lines: ["NEET 2025: Score 705", "AIIMS NAGPUR"],
     image: "/rankers/kartik-satpute.jpg",
   },
   {
     name: "Rasika Patil",
     exam: "iiser",
-    lines: ["IISER EXAM-2025 — 1 AIR"],
+    lines: ["IISER EXAM-2025: 1 AIR"],
     image: "/rankers/rasika-patil.jpg",
   },
   {
     name: "Saadahamad Mulla",
     exam: "neet",
-    lines: ["NEET 2025 — Score 593"],
+    lines: ["NEET 2025: Score 593"],
     image: "/rankers/saadahamad-mulla.jpg",
   },
   {
@@ -51,7 +51,7 @@ export const rankers: Ranker[] = [
   {
     name: "Shreya Adsul",
     exam: "iiser",
-    lines: ["IISER — Bhopal"],
+    lines: ["IISER Bhopal"],
     image: "/rankers/shreya-adsul.jpg",
   },
 ];

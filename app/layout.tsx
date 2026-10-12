@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Manrope } from "next/font/google";
 import { MobileTabBar } from "@/components/layout/MobileTabBar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
@@ -12,9 +12,15 @@ import { shareImage } from "@/lib/seo";
 import { organizationSchema } from "@/lib/structuredData";
 import "./globals.css";
 
-const sans = Plus_Jakarta_Sans({
+const sans = Manrope({
   subsets: ["latin"],
   variable: "--font-sans-app",
+  display: "swap",
+});
+
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display-app",
   display: "swap",
 });
 
@@ -68,7 +74,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className={sans.variable}>
+    <html lang="en-IN" className={`${sans.variable} ${display.variable}`}>
       <body className="min-h-screen pb-[calc(4rem+env(safe-area-inset-bottom))] xl:pb-0 bg-page font-sans text-ink antialiased">
         <a
           href="#main"

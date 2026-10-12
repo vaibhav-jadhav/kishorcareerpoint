@@ -19,7 +19,7 @@ export type Branch = {
 };
 
 export const branchesIntro =
-  "Kishor Career Point (KCP) is centered in Ichalkaranji, which serves as our main branch and administrative hub. In addition to Ichalkaranji, KCP has branches in Kolhapur, Sangli, Karad, and Hatkanangale — each providing the same high-quality coaching, experienced faculty, and student-focused support. Contact your nearest branch for course details, schedules, and admissions information.";
+  "Kishor Career Point (KCP) is centered in Ichalkaranji, which serves as our main branch and administrative hub. In addition to Ichalkaranji, KCP has branches in Kolhapur, Sangli, Karad, and Hatkanangale, each providing the same high-quality coaching, experienced faculty, and student-focused support. Contact your nearest branch for course details, schedules, and admissions information.";
 
 export const otherBranchesIntro =
   "In addition to our main branch in Ichalkaranji, we have branches in Kolhapur, Sangli, Karad, and Hatkanangale. Each location offers the same high-quality coaching and support.";

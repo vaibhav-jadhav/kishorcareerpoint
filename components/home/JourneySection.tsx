@@ -139,7 +139,7 @@ export function JourneySection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#4aa3f2] via-[#2f8ae6] to-[#1f78d6] py-10 text-white sm:py-14"
+      className="relative overflow-hidden bg-[#2f8ae6] py-10 text-white sm:py-14"
       aria-labelledby="journey-heading"
     >
       <Confetti fireKey={burst} />
@@ -148,7 +148,6 @@ export function JourneySection() {
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="anim-rays absolute left-1/2 top-1/2 h-[220%] w-[220%] -translate-x-1/2 -translate-y-1/2 bg-[repeating-conic-gradient(from_0deg,rgba(255,255,255,0.06)_0deg_6deg,transparent_6deg_12deg)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(255,255,255,0.14),transparent_55%)]" />
       </div>
 
       <div className="relative mx-auto max-w-5xl px-4 sm:px-6">

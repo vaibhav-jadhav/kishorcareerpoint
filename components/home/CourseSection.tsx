@@ -110,7 +110,8 @@ function PinIcon() {
 export type Accent = {
   bar: string;
   chip: string;
-  gradient: string;
+  /** Flat banner colour. */
+  fill: string;
   /** Large heading and small line shown on the banner, same wording as the course name. */
   title: string;
   subtitle: string;
@@ -122,7 +123,7 @@ export const courseAccents: Record<string, Accent> = {
   jee: {
     bar: "bg-brand",
     chip: "text-brand",
-    gradient: "from-[#0a74cf] via-brand to-brand-dark",
+    fill: "bg-brand",
     title: "JEE",
     subtitle: "Main + Advanced",
     glyphs: ["π", "∑", "√", "∫"],
@@ -131,7 +132,7 @@ export const courseAccents: Record<string, Accent> = {
   neet: {
     bar: "bg-accent",
     chip: "text-accent",
-    gradient: "from-[#f97316] via-accent to-[#a8380a]",
+    fill: "bg-accent",
     title: "NEET",
     subtitle: "(UG)",
     glyphs: ["+", "○", "+", "○"],
@@ -140,7 +141,7 @@ export const courseAccents: Record<string, Accent> = {
   "mht-cet": {
     bar: "bg-[#0e8fa3]",
     chip: "text-[#0e8fa3]",
-    gradient: "from-[#1bb4c8] via-[#0e8fa3] to-[#075a69]",
+    fill: "bg-[#0e8fa3]",
     title: "MHT-CET",
     subtitle: "Maharashtra",
     glyphs: ["✎", "A", "✓", "B"],
@@ -149,7 +150,7 @@ export const courseAccents: Record<string, Accent> = {
   foundation: {
     bar: "bg-tag",
     chip: "text-tag",
-    gradient: "from-[#25b95f] via-tag to-[#0d6b30]",
+    fill: "bg-tag",
     title: "Foundation",
     subtitle: "8th – 10th",
     glyphs: ["★", "A", "★", "B"],
@@ -166,7 +167,7 @@ export function CourseBanner({
 }) {
   return (
     <div
-      className={`relative overflow-hidden ${heightClass} bg-gradient-to-br ${accent.gradient} text-white`}
+      className={`relative overflow-hidden ${heightClass} ${accent.fill} text-white`}
       aria-hidden="true"
     >
       {/* Dot grid and soft rings give the flat colour some depth. */}
