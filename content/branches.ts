@@ -10,6 +10,12 @@ export type Branch = {
   image?: string;
   mapEmbedUrl: string;
   directionsUrl: string;
+  /** Used to place the branch on the home page map. */
+  lat: number;
+  lng: number;
+  /** Where the pin is drawn on the home page map, when it differs from the real location. */
+  mapLat?: number;
+  mapLng?: number;
 };
 
 export const branchesIntro =
@@ -33,6 +39,8 @@ export const branches: Branch[] = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.7558682284016!2d74.46779717580075!3d16.689095722544565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc0e273f9c92a37%3A0xe779a417ba4465d5!2sKishor%20Career%20Point!5e0!3m2!1sen!2sin!4v1765048151678!5m2!1sen!2sin",
     directionsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=16.688901122541733,74.47085036378876",
+    lat: 16.6889,
+    lng: 74.4709,
   },
   {
     id: "kolhapur",
@@ -47,6 +55,8 @@ export const branches: Branch[] = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.6440243901416!2d74.2390111758009!3d16.694687622389388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc101e93c2b53c3%3A0x125da80c277fbc19!2sKishor%20Career%20Point%20(KCP)%20Kolhapur!5e0!3m2!1sen!2sin!4v1765048442134!5m2!1sen!2sin",
     directionsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=16.694692096226365,74.2415405761218",
+    lat: 16.6947,
+    lng: 74.2415,
   },
   {
     id: "sangli",
@@ -62,6 +72,8 @@ export const branches: Branch[] = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.808071404551!2d74.5727447758029!3d16.83587491845758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc12326dd50a4f5%3A0xa3d1d9fd58e65985!2sKishor%20Career%20Point%20(KCP)!5e0!3m2!1sen!2sin!4v1765048528335!5m2!1sen!2sin",
     directionsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=16.835893139392685,74.57523019280691",
+    lat: 16.8359,
+    lng: 74.5752,
   },
   {
     id: "karad",
@@ -76,6 +88,12 @@ export const branches: Branch[] = [
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.480303303446!2d74.18548907580949!3d17.292360005534444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc18238a901ae9f%3A0x659a60d35c86542f!2sKISHOR%20CAREER%20POINT!5e0!3m2!1sen!2sin!4v1765048581423!5m2!1sen!2sin",
     directionsUrl:
       "https://www.google.com/maps/dir/?api=1&destination=17.292342258502195,74.18808780744061",
+    lat: 17.2923,
+    lng: 74.1881,
+    // The home page map is schematic: the Karad pin is drawn near Urun-Islampur so it sits
+    // close to the other branches. Directions and the address still use the real Karad location.
+    mapLat: 17.0447,
+    mapLng: 74.265,
   },
   {
     id: "hatkanangale",
@@ -88,9 +106,19 @@ export const branches: Branch[] = [
     mapEmbedUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282.281911146061!2d74.41863965506931!3d16.74826988368148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc11cf665edc157%3A0x7337074c4cff0417!2sHatkanangale%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1765048624168!5m2!1sen!2sin",
     directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=16.6011,74.7582",
+      "https://www.google.com/maps/dir/?api=1&destination=16.7483,74.4186",
+    lat: 16.7483,
+    lng: 74.4186,
   },
 ];
+
+export const branchMapContent = {
+  eyebrow: "Find us near you",
+  heading: "5+ branches across Western Maharashtra",
+  lead: "Ichalkaranji · Kolhapur · Sangli · Karad · Hatkanangale",
+  mainBadge: "Main centre",
+  mapNote: "Schematic map, not to scale. Use Directions for the exact route.",
+};
 
 export function getMainBranch() {
   const main = branches.find((branch) => branch.isMain);

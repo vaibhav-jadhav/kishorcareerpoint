@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BranchMapSection } from "@/components/home/BranchMapSection";
 import { CourseSection } from "@/components/home/CourseSection";
 import { GoalSelector } from "@/components/home/GoalSelector";
 import { JourneySection } from "@/components/home/JourneySection";
@@ -18,8 +19,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
       <IntroSection />
+      <HeroSection />
+      <BranchMapSection />
       <GoalSelector />
       <CourseSection />
       <JourneySection />

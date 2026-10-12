@@ -1,15 +1,12 @@
 export const about = {
+  heading: "Behind Every Ambition, There Should Be Clear Direction",
   paragraphs: [
-    "Kishor Career Point was initially established at Maharashtra in 2016 by Mr. Vishal D. Pagade who has carved the careers of thousands of students over two decades. KCP rested on the strong pillars of commitment, excellence, innovation and perfection, we have laid a strong foundation of the Kishor Career Point. The Institute is the enlargement of his vision to further display the best of his teaching ability and rich experience to aspire and enable his students to make their dreams a reality and shape the destiny of students. We endeavor to be refreshed with the most recent innovation and soak up it in our instructing procedure.",
-    "We aspire to be updated with the latest technology methods and imbibe it in our teaching.",
-    "Kishor Career Point has a state-of-the-art infrastructure, world class facilities and rich ambiance is given to our students and best in class teaching with best faculty.",
+    "Established in 2016 by Vishal D. Pagade, Kishor Career Point provides preparation for NEET UG, JEE Main & Advanced, and Foundation programmes for Classes 8–10. With its main centre in Ichalkaranji and branches across the region, KCP focuses on helping students build clear concepts, disciplined study habits and confidence in applying what they learn.",
   ],
-  short:
-    "Kishor Career Point, established in Maharashtra in 2016 by Mr. Vishal D. Pagade, has guided thousands of students with a focus on commitment, excellence, and innovation. The institute combines modern technology with experienced faculty and world-class facilities. We continuously evolve to help students achieve their dreams and succeed.",
   mission:
-    "KCP has mission to provide world-class institute for competitive exams such as IIT-JEE, NEET. Being a topmost coaching class, our mission is not only training students for competitive exams but also brighten up their career path by introducing them to the science world in a simple & innovative way.",
+    "To make challenging concepts easier to understand and help students prepare through clear teaching, consistent practice and thoughtful guidance.",
   vision:
-    "Our aim is to become one of the most praise institute in the field of competitive education sector and help the aspiring future doctors and engineers to make their dream reality by providing them true valued educational system, commitment, world-class facilities, the best resources and faculty.",
+    "To build a learning community where students develop the knowledge, confidence and discipline to pursue their academic ambitions.",
   values: [
     "Integrity",
     "Commitment",

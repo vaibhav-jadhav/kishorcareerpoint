@@ -2,14 +2,14 @@ export type Course = {
   id: string;
   name: string;
   summary: string;
-  image: string;
+  image?: string;
 };
 
 export const coursesIntro =
   "Explore our range of specialized courses designed to help students excel in national-level exams and school foundations. Gain access to expert faculty, comprehensive materials, and proven results.";
 
 export const coursesPageIntro =
-  "Kishor Career Point (KCP) is a focused educational institute committed to delivering result-driven coaching for competitive and school-level examinations. Our experienced faculty, structured syllabi, and modern learning infrastructure help students build strong conceptual foundations, sharpen problem-solving skills, and achieve top results in JEE (Main + Advanced), NEET (UG), and Foundation courses for school students.";
+  "Kishor Career Point (KCP) is a focused educational institute committed to delivering result-driven coaching for competitive and school-level examinations. Our experienced faculty, structured syllabi, and modern learning infrastructure help students build strong conceptual foundations, sharpen problem-solving skills, and achieve top results in JEE (Main + Advanced), NEET (UG), MHT-CET, and Foundation courses for school students.";
 
 export const courses: Course[] = [
   {
@@ -25,6 +25,12 @@ export const courses: Course[] = [
     summary:
       "Structured preparation for medical entrance, including in-depth coverage of biology, physics, and chemistry by experienced mentors.",
     image: "/courses/neet.jpg",
+  },
+  {
+    id: "mht-cet",
+    name: "MHT-CET",
+    summary:
+      "Preparation for the Maharashtra Common Entrance Test, built for students aiming at engineering and pharmacy admissions in Maharashtra.",
   },
   {
     id: "foundation",

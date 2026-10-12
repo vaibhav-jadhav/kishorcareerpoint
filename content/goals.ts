@@ -9,11 +9,20 @@ export type ClassOption = {
   phrase: string;
 };
 
-export type Goal = {
-  id: GoalId;
+export type ExamOption = {
+  /** Label on the button, e.g. "MHT-CET". */
   label: string;
   /** Course name used in the WhatsApp message. */
   course: string;
+};
+
+export type Goal = {
+  id: GoalId;
+  label: string;
+  /** Course name used in the WhatsApp message when there is no exam step. */
+  course: string;
+  /** When set, the visitor picks one of these before choosing a class. */
+  exams?: ExamOption[];
   classOptions: ClassOption[];
 };
 
@@ -28,29 +37,38 @@ const seniorClasses: ClassOption[] = [
   { label: "12+", phrase: "12th pass (12+ repeater batch)" },
 ];
 
+const engineerClasses: ClassOption[] = [
+  { label: "10th", phrase: "Class 10th" },
+  ...seniorClasses,
+];
+
 export const goals: Goal[] = [
   { id: "doctor", label: "Doctor", course: "NEET (UG)", classOptions: seniorClasses },
   {
     id: "engineer",
     label: "Engineer",
     course: "JEE (Main + Advanced)",
-    classOptions: seniorClasses,
+    exams: [
+      { label: "JEE (Main + Advanced)", course: "JEE (Main + Advanced)" },
+      { label: "MHT-CET", course: "MHT-CET" },
+    ],
+    classOptions: engineerClasses,
   },
   {
     id: "foundation",
-    label: "8th - 10th",
+    label: "9th - 10th",
     course: "Foundation",
     classOptions: [
-      { label: "8th", phrase: "Class 8th" },
       { label: "9th", phrase: "Class 9th" },
       { label: "10th", phrase: "Class 10th" },
     ],
   },
 ];
 
-export function buildGoalWhatsappLink(goal: Goal, option: ClassOption) {
+export function buildGoalWhatsappLink(goal: Goal, option: ClassOption, exam?: ExamOption | null) {
+  const course = exam?.course ?? goal.course;
   const message =
-    `Hello ${site.name}, I would like to know more about the ${goal.course} course ` +
+    `Hello ${site.name}, I would like to know more about the ${course} course ` +
     `for ${option.phrase}. Please share the batch details and fees.`;
   return whatsappLink(message);
 }

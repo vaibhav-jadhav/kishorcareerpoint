@@ -29,7 +29,7 @@ function HeartIcon() {
     <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className="h-full w-full">
       <path
         className="anim-pulse"
-        d="M24 41C10 31 5 24 5 16.5 5 11 9 7 14 7c4 0 8 2.6 10 6.2C26 9.600 30 7 34 7c5 0 9 4 9 9.500C43 24 38 31 24 41z"
+        d="M24 41C10 31 5 24 5 16.5 5 11 9 7 14 7c4 0 8 2.6 10 6.2C26 9.6 30 7 34 7c5 0 9 4 9 9.500C43 24 38 31 24 41z"
         fill="#e4570e"
       />
       <path
@@ -73,10 +73,36 @@ function RocketIcon() {
           strokeWidth="1.8"
           strokeLinejoin="round"
         />
-        <path d="M24 4c-3 2-5 5.200-6 8h12c-1-2.800-3-6-6-8z" fill="#e4570e" />
-        <circle cx="24" cy="22" r="4.200" fill="#4aa8f0" stroke="#04284a" strokeWidth="1.800" />
-        <path className="anim-flame" d="M20.500 36h7L24 45z" fill="#ffc20e" />
+        <path d="M24 4c-3 2-5 5.2-6 8h12c-1-2.8-3-6-6-8z" fill="#e4570e" />
+        <circle cx="24" cy="22" r="4.2" fill="#4aa8f0" stroke="#04284a" strokeWidth="1.8" />
+        <path className="anim-flame" d="M20.5 36h7L24 45z" fill="#ffc20e" />
       </g>
+    </svg>
+  );
+}
+
+function PinIcon() {
+  // Map pin for the Maharashtra state exam, with a ripple and an answer tick.
+  return (
+    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true" className="h-full w-full">
+      <ellipse className="anim-pulse" cx="24" cy="41" rx="13" ry="4" fill="#0e8fa3" fillOpacity="0.25" />
+      <ellipse cx="24" cy="41" rx="6" ry="2" fill="#0e8fa3" fillOpacity="0.55" />
+      <g className="anim-float">
+        <path
+          d="M24 5c-8 0-14 6-14 13.500C10 28 24 39 24 39s14-11 14-20.500C38 11 32 5 24 5z"
+          fill="#0e8fa3"
+        />
+        <circle cx="24" cy="18.5" r="8" fill="#ffffff" />
+        <path
+          d="m20 18.5 3 3 5.5-6"
+          stroke="#e4570e"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <circle className="anim-twinkle" cx="40" cy="9" r="1.8" fill="#ffc20e" />
+      <circle className="anim-twinkle" style={{ animationDelay: "1s" }} cx="7" cy="30" r="1.5" fill="#ffc20e" />
     </svg>
   );
 }
@@ -110,6 +136,15 @@ export const courseAccents: Record<string, Accent> = {
     subtitle: "(UG)",
     glyphs: ["+", "○", "+", "○"],
     Icon: HeartIcon,
+  },
+  "mht-cet": {
+    bar: "bg-[#0e8fa3]",
+    chip: "text-[#0e8fa3]",
+    gradient: "from-[#1bb4c8] via-[#0e8fa3] to-[#075a69]",
+    title: "MHT-CET",
+    subtitle: "Maharashtra",
+    glyphs: ["✎", "A", "✓", "B"],
+    Icon: PinIcon,
   },
   foundation: {
     bar: "bg-tag",
@@ -273,7 +308,7 @@ export function CourseSection() {
           <p className="mt-4 text-base leading-7 text-muted">{coursesIntro}</p>
         </Reveal>
 
-        <ul className="mt-12 grid gap-x-6 gap-y-10 md:grid-cols-3">
+        <ul className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-4">
           {courses.map((course, index) => (
             <li key={course.id}>
               <CourseCard course={course} index={index} />

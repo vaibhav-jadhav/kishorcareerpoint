@@ -227,6 +227,47 @@ body {
   animation: kcp-sweep 0.9s ease-out;
 }
 
+@keyframes kcp-ripple {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes kcp-flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
+@keyframes kcp-pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.anim-ripple {
+  animation: kcp-ripple 2.6s ease-out infinite;
+}
+
+.anim-flow {
+  stroke-dasharray: 5 9;
+  animation: kcp-flow 1.4s linear infinite;
+}
+
+.anim-pop {
+  animation: kcp-pop 0.45s ease-out both;
+}
+
 @keyframes kcp-wave {
   from {
     transform: rotate(-10deg);
@@ -323,7 +364,14 @@ body {
   .anim-draw,
   .anim-tick,
   .anim-rays,
+  .anim-ripple,
+  .anim-flow,
+  .anim-pop,
   .group:hover .anim-sweep {
     animation: none;
+  }
+
+  .map-dot {
+    display: none;
   }
 }

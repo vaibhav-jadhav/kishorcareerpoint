@@ -6,8 +6,6 @@ export const site = {
     "KCP - Kishor Career Point - Leading Coaching Institute for JEE, NEET, Olympiad and MHT-CET Preparation in Maharashtra, India.",
   tagline:
     "Empowering aspirants to become future IITians & Doctors",
-  heroSupport:
-    "Shaping paths for tomorrow's innovators and healers, Empowering excellence through world-class education.",
   email: "contact@kishorcareerpoint.com",
   phone: "9370145659",
   phoneDisplay: "9370145659",

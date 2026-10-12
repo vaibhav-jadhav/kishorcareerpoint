@@ -47,6 +47,7 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "JEE (Main + Advanced)", href: "/courses#jee" },
       { label: "NEET (UG)", href: "/courses#neet" },
+      { label: "MHT-CET", href: "/courses#mht-cet" },
       { label: "Foundation (8th–10th)", href: "/courses#foundation" },
       { label: "Olympiad School", href: site.olympiadUrl, external: true },
       { label: "Talent Hunt Exam", href: site.talentHuntUrl, external: true },

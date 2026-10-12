@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { buildGoalWhatsappLink, goals, goalsHeading } from "@/content/goals";
-import type { ClassOption, Goal, GoalId } from "@/content/goals";
+import type { ClassOption, ExamOption, Goal, GoalId } from "@/content/goals";
 
 function GoalArt({ id }: { id: GoalId }) {
   const common = { viewBox: "0 0 96 96", "aria-hidden": true, className: "h-full w-full" };
@@ -61,13 +61,20 @@ function GoalArt({ id }: { id: GoalId }) {
   );
 }
 
-function Progress({ done }: { done: boolean }) {
-  // Step 1 (goal) is always complete here; step 2 (class) completes once a class is picked.
+function Progress({ completed, total }: { completed: number; total: number }) {
+  // Step 1 (goal) is always complete here. Each later step completes once picked.
   return (
     <div className="flex h-2 w-40 items-center overflow-hidden rounded-full" aria-hidden="true">
-      <span className="h-full flex-1 bg-tag/70" />
-      <span className="h-full w-1 bg-ink" />
-      <span className={`h-full flex-1 transition-colors ${done ? "bg-tag/70" : "bg-select/25"}`} />
+      {Array.from({ length: total }, (_, i) => (
+        <span key={i} className="flex h-full flex-1 items-center">
+          {i > 0 ? <span className="h-full w-1 bg-ink" /> : null}
+          <span
+            className={`h-full flex-1 transition-colors ${
+              i < completed ? "bg-tag/70" : "bg-select/25"
+            }`}
+          />
+        </span>
+      ))}
     </div>
   );
 }
@@ -75,6 +82,7 @@ function Progress({ done }: { done: boolean }) {
 export function GoalSelector() {
   const [goal, setGoal] = useState<Goal | null>(null);
   const [option, setOption] = useState<ClassOption | null>(null);
+  const [exam, setExam] = useState<ExamOption | null>(null);
   const classHeadingRef = useRef<HTMLHeadingElement>(null);
   const goalHeadingRef = useRef<HTMLHeadingElement>(null);
   const mounted = useRef(false);
@@ -86,11 +94,14 @@ export function GoalSelector() {
       return;
     }
     (goal ? classHeadingRef : goalHeadingRef).current?.focus();
-  }, [goal]);
+  }, [goal, exam]);
+
+  const awaitingExam = Boolean(goal?.exams) && exam === null;
 
   function reset() {
     setGoal(null);
     setOption(null);
+    setExam(null);
   }
 
   return (
@@ -107,21 +118,22 @@ export function GoalSelector() {
               {goalsHeading.lead}
               <span className="block text-brand">{goalsHeading.accent}</span>
             </h2>
-            <ul className="mt-5 flex justify-center gap-3 sm:gap-5">
+            <ul className="mt-6 flex justify-center gap-3 sm:gap-6">
               {goals.map((item) => (
-                <li key={item.id} className="w-full max-w-[7.25rem] flex-1">
+                <li key={item.id} className="w-full max-w-[9.5rem] flex-1">
                   <button
                     type="button"
                     onClick={() => {
                       setGoal(item);
                       setOption(null);
+                      setExam(null);
                     }}
-                    className="group flex w-full flex-col items-center gap-2 rounded-xl border border-line bg-white p-2 text-center transition hover:border-brand hover:shadow-[0_8px_20px_-10px_rgba(0,90,170,0.4)] sm:p-2.5"
+                    className="group flex w-full flex-col items-center gap-2 rounded-xl border border-line bg-white p-2.5 text-center transition hover:border-brand hover:shadow-[0_8px_20px_-10px_rgba(0,90,170,0.4)] sm:p-3"
                   >
-                    <span className="flex aspect-square w-full max-w-[4.5rem] items-center justify-center rounded-lg bg-brand-soft p-1.5">
+                    <span className="flex aspect-square w-full max-w-[6.25rem] items-center justify-center rounded-lg bg-brand-soft p-2">
                       <GoalArt id={item.id} />
                     </span>
-                    <span className="text-sm font-bold text-ink group-hover:text-brand sm:text-base">
+                    <span className="text-base font-bold text-ink group-hover:text-brand sm:text-lg">
                       {item.label}
                     </span>
                   </button>
@@ -132,11 +144,45 @@ export function GoalSelector() {
         ) : (
           <div className="mx-auto max-w-lg rounded-2xl border border-line bg-white p-5 shadow-[0_10px_28px_-18px_rgba(4,40,74,0.35)] sm:p-6">
             <div className="flex items-center justify-between gap-4">
-              <Progress done={option !== null} />
+              <Progress
+                completed={1 + (goal.exams ? (exam ? 1 : 0) : 0) + (option ? 1 : 0)}
+                total={goal.exams ? 3 : 2}
+              />
               <p className="text-sm font-medium text-ink underline decoration-line underline-offset-4">
-                {goal.course}
+                {exam?.course ?? goal.course}
               </p>
             </div>
+            {awaitingExam ? (
+              <>
+            <h2
+              id="goal-heading"
+              ref={classHeadingRef}
+              tabIndex={-1}
+              className="mt-6 text-center text-lg font-medium text-gray-700 outline-none"
+            >
+              Select your exam
+            </h2>
+            <div
+              role="radiogroup"
+              aria-labelledby="goal-heading"
+              className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2"
+            >
+              {goal.exams?.map((item) => (
+                <button
+                  key={item.label}
+                  type="button"
+                  role="radio"
+                  aria-checked={false}
+                  onClick={() => setExam(item)}
+                  className="rounded-xl border border-line bg-surface px-3 py-3 text-base font-medium text-gray-700 transition hover:border-select/50 hover:bg-white"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+              </>
+            ) : (
+              <>
             <h2
               id="goal-heading"
               ref={classHeadingRef}
@@ -150,7 +196,11 @@ export function GoalSelector() {
               role="radiogroup"
               aria-labelledby="goal-heading"
               className={`mt-4 grid gap-2.5 ${
-                goal.classOptions.length === 3 ? "grid-cols-3" : "grid-cols-2 sm:grid-cols-4"
+                goal.classOptions.length === 3
+                  ? "grid-cols-3"
+                  : goal.classOptions.length === 2
+                    ? "grid-cols-2"
+                    : "grid-cols-2 sm:grid-cols-4"
               }`}
             >
               {goal.classOptions.map((item) => {
@@ -175,10 +225,15 @@ export function GoalSelector() {
             </div>
 
             {goal.id !== "foundation" ? (
-              <p className="mt-3 text-center text-xs text-muted">
-                12+ is our repeater batch for students who have already passed 12th.
+              <p className="mt-4 text-center text-sm text-muted">
+                <strong className="text-base font-extrabold text-ink">12+</strong> is our{" "}
+                <strong className="text-base font-extrabold text-ink">repeater batch</strong> for
+                students who have already passed 12th.
               </p>
             ) : null}
+
+              </>
+            )}
 
             <div className="mt-7 flex items-center justify-between">
               <button
@@ -188,9 +243,9 @@ export function GoalSelector() {
               >
                 Cancel
               </button>
-              {option ? (
+              {option && !awaitingExam ? (
                 <a
-                  href={buildGoalWhatsappLink(goal, option)}
+                  href={buildGoalWhatsappLink(goal, option, exam)}
                   target="_blank"
                   rel="noreferrer"
                   className="rounded-lg px-2 py-2 text-base font-bold text-select hover:underline"

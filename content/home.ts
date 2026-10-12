@@ -1,6 +1,6 @@
 import { rankers, resultHighlights } from "@/content/rankers";
 
-export type HeroStatIcon = "years" | "medical" | "iit";
+export type HeroStatIcon = "years" | "concepts" | "practice";
 
 export type HeroStat = {
   icon: HeroStatIcon;
@@ -10,24 +10,30 @@ export type HeroStat = {
   text: string;
 };
 
+export const introContent = {
+  tagline: "Your Ambition Deserves the Right Direction.",
+  support:
+    "Prepare for JEE, NEET and beyond with Kishor Career Point—where clear concepts, purposeful learning and dedicated guidance shape your preparation.",
+};
+
 export const heroContent = {
   headline: "Empowering aspirants to become future",
   headlineAccent: "IITians & Doctors",
   stats: [
     {
       icon: "years",
-      highlight: "12 years",
+      highlight: "10 years",
       text: "of transforming dreams into reality",
     },
     {
-      icon: "medical",
-      highlight: "12%",
-      text: "of AIIMS doctors are from KCP",
+      icon: "concepts",
+      highlight: "Clear Concepts,",
+      text: "Strong Fundamentals",
     },
     {
-      icon: "iit",
-      highlight: "21%",
-      text: "of IITians are alumni of KCP",
+      icon: "practice",
+      highlight: "Structured Practice",
+      text: "and Regular Assessment",
     },
   ] satisfies HeroStat[],
 };

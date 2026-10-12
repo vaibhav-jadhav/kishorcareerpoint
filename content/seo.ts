@@ -8,7 +8,7 @@ export const seo = {
   home: {
     title: "Kishor Career Point – NEET, JEE & Foundation Coaching in Ichalkaranji",
     description:
-      "Kishor Career Point (KCP) offers NEET (UG), JEE (Main + Advanced) and Foundation (8th–10th) coaching in Ichalkaranji, Kolhapur, Sangli, Karad and Hatkanangale.",
+      "Kishor Career Point (KCP) offers NEET (UG), JEE (Main + Advanced), MHT-CET and Foundation (8th–10th) coaching in Ichalkaranji, Kolhapur, Sangli, Karad and Hatkanangale.",
   },
   about: {
     title: "About Us – Mission, Vision & Values",
@@ -18,7 +18,7 @@ export const seo = {
   courses: {
     title: "NEET, JEE & Foundation Courses",
     description:
-      "Explore KCP courses for JEE (Main + Advanced), NEET (UG) and Foundation (8th–10th): experienced faculty, structured syllabi and result-driven coaching.",
+      "Explore KCP courses for JEE (Main + Advanced), NEET (UG), MHT-CET and Foundation (8th–10th): experienced faculty, structured syllabi and result-driven coaching.",
   },
   results: {
     title: "Results – NEET, JEE, IISER & MHT-CET",

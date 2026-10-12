@@ -25,19 +25,25 @@ function StatIcon({ name }: { name: HeroStatIcon }) {
       </svg>
     );
   }
-  if (name === "medical") {
+  if (name === "concepts") {
+    // Light bulb: clear ideas
     return (
       <svg {...common}>
-        <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
-        <path d="M12 8v8M8 12h8" />
+        <path d="M9 18h6M10 21h4" />
+        <path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V17h5v-1.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3z" />
+        <path d="M12 7.5v3" />
       </svg>
     );
   }
+  // Checklist: structured practice and assessment
   return (
     <svg {...common}>
-      <path d="M2.5 9.5 12 5l9.5 4.5L12 14 2.5 9.5z" />
-      <path d="M6.5 11.8v4.2c0 1.3 2.5 2.5 5.5 2.5s5.5-1.2 5.5-2.5v-4.2" />
-      <path d="M21.5 9.5V15" />
+      <rect x="5" y="4" width="14" height="17" rx="2.5" />
+      <path d="M9 4V3h6v1" />
+      <path d="m8.5 10 1.3 1.3L12 9" />
+      <path d="M13.5 10.5H16" />
+      <path d="m8.5 15.5 1.3 1.3L12 14.5" />
+      <path d="M13.5 16H16" />
     </svg>
   );
 }
@@ -68,10 +74,10 @@ export function HeroSection() {
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,25rem)_minmax(0,28rem)] lg:justify-center lg:gap-14 lg:py-8">
         <div>
-          <h1 className="text-2xl font-extrabold leading-tight tracking-tight text-brand-dark sm:text-3xl">
+          <h2 className="text-2xl font-extrabold leading-tight tracking-tight text-brand-dark sm:text-3xl">
             {heroContent.headline}{" "}
             <span className="text-brand">{heroContent.headlineAccent}</span>
-          </h1>
+          </h2>
 
           <ul className="mt-5 space-y-2.5">
             {heroContent.stats.map((stat) => (
