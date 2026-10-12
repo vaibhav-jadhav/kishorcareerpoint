@@ -78,6 +78,14 @@ h3 {
   }
 }
 
+/* Wide cards have room for the text beside the photo, so almost all of it shows. */
+@media (min-width: 1072px) {
+  .founder-fade {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 16%);
+  }
+}
+
 ::selection {
   background: var(--brand-soft);
   color: var(--ink);

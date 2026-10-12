@@ -12,7 +12,7 @@ import { founderMessage } from "@/content/home";
 export function FounderSection() {
   return (
     <section className="bg-white py-10 sm:py-14" aria-labelledby="founder-heading">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <Reveal from="up">
           <div className="relative isolate overflow-hidden rounded-3xl bg-brand-dark">
             {/* Blurred copy of the photo fills the card behind everything. */}
