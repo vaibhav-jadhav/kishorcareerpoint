@@ -117,7 +117,7 @@ export const branchMapContent = {
   heading: "5+ branches across Western Maharashtra",
   lead: "Ichalkaranji · Kolhapur · Sangli · Karad · Hatkanangale",
   mainBadge: "Main centre",
-  mapNote: "Schematic map, not to scale. Use Directions for the exact route.",
+  mapNote: "Use Directions for the exact route.",
 };
 
 export function getMainBranch() {
