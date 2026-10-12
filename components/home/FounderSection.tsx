@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { about } from "@/content/about";
+import { founderMessage } from "@/content/home";
 
 export function FounderSection() {
   return (
@@ -29,10 +29,10 @@ export function FounderSection() {
             id="founder-heading"
             className="text-2xl font-extrabold leading-tight tracking-tight text-ink sm:text-3xl"
           >
-            {about.heading}
+            {founderMessage.heading}
           </h2>
           <span className="mx-auto mt-4 block h-1 w-14 rounded-full bg-sun sm:mx-0" aria-hidden="true" />
-          <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base">{about.mission}</p>
+          <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base">{founderMessage.text}</p>
           <div className="mt-5">
             <Button href="/about-us" variant="primary">
               Know more about us

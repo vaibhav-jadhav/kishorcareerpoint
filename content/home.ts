@@ -10,9 +10,14 @@ export type HeroStat = {
   text: string;
 };
 
+export const founderMessage = {
+  heading: "A message from our founder",
+  text: "At Kishor Career Point, we believe every student deserves clear explanations, thoughtful guidance and the opportunity to improve. Our purpose is to build strong concepts, nurture confidence and help students move steadily towards their goals.",
+};
+
 export const heroContent = {
-  headline: "Empowering aspirants to become future",
-  headlineAccent: "IITians & Doctors",
+  headline: "Behind Every Ambition, There Should Be",
+  headlineAccent: "Clear Direction",
   stats: [
     {
       icon: "years",
