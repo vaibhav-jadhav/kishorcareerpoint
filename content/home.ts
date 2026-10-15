@@ -1,4 +1,4 @@
-import { rankers, resultHighlights } from "@/content/rankers";
+import { rankerPosterAlt, rankerPosters } from "@/content/rankers";
 
 export type HeroStatIcon = "years" | "concepts" | "practice";
 
@@ -54,31 +54,12 @@ export type ShowcaseSlide =
       image: string;
     };
 
-/**
- * Slides for the auto-scrolling card beside the hero text.
- * Built from the real ranker portraits and result posters, alternating
- * between the two so the card does not show only one kind for long.
- */
-export const showcaseSlides: ShowcaseSlide[] = (() => {
-  const rankerSlides: ShowcaseSlide[] = rankers.map((r) => ({
-    kind: "ranker",
-    id: `ranker-${r.name}`,
-    name: r.name,
-    lines: r.lines,
-    image: r.image,
-  }));
-  const posterSlides: ShowcaseSlide[] = resultHighlights.map((p) => ({
+/** Top NEET scorers for the auto-scrolling card beside the hero text. */
+export const showcaseSlides: ShowcaseSlide[] = rankerPosters
+  .filter((p) => p.featured)
+  .map((p) => ({
     kind: "poster",
-    id: `poster-${p.image}`,
-    title: p.title,
+    id: `ranker-poster-${p.image}`,
+    title: rankerPosterAlt(p),
     image: p.image,
   }));
-
-  const out: ShowcaseSlide[] = [];
-  const longest = Math.max(rankerSlides.length, posterSlides.length);
-  for (let i = 0; i < longest; i += 1) {
-    if (posterSlides[i]) out.push(posterSlides[i]);
-    if (rankerSlides[i]) out.push(rankerSlides[i]);
-  }
-  return out;
-})();

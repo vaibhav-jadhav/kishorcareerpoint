@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useId, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
 import { Reveal } from "@/components/ui/Reveal";
-import { examTabs, rankers, resultHighlights } from "@/content/rankers";
+import { examTabs, rankerPosterAlt, rankerPosters, rankers, resultHighlights } from "@/content/rankers";
 import type { ExamId } from "@/content/rankers";
 
 export const recordCopy = {
@@ -19,8 +19,10 @@ export function RecordSection() {
   const baseId = useId();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const tabRankers = rankers.filter((item) => item.exam === active);
-  const tabPosters = resultHighlights.filter((item) => item.exam === active);
+  const tabFeatured = rankerPosters.filter((item) => item.exam === active && item.featured);
+  const hasRankerPosters = rankerPosters.some((item) => item.exam === active);
+  const tabRankers = hasRankerPosters ? [] : rankers.filter((item) => item.exam === active);
+  const tabPosters = hasRankerPosters ? [] : resultHighlights.filter((item) => item.exam === active);
 
   function onKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = index;
@@ -85,6 +87,22 @@ export function RecordSection() {
           aria-labelledby={`${baseId}-tab-${active}`}
           className="anim-rise mt-8 flex flex-wrap justify-center gap-4"
         >
+          {tabFeatured.map((poster) => (
+            <Link
+              key={poster.image}
+              href="/results"
+              className="group w-full overflow-hidden rounded-2xl shadow-[0_12px_28px_-18px_rgba(4,40,74,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-16px_rgba(0,90,170,0.45)] sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)]"
+            >
+              <Image
+                src={poster.image}
+                alt={rankerPosterAlt(poster)}
+                width={1024}
+                height={723}
+                sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 92vw"
+                className="h-auto w-full origin-center scale-[1.04] transition duration-500 group-hover:scale-[1.07]"
+              />
+            </Link>
+          ))}
           {tabRankers.map((student) => (
             <Link
               key={student.name}

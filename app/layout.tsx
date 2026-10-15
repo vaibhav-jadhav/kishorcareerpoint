@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   description: seo.home.description,
   applicationName: site.name,
   category: "education",
-  appleWebApp: { capable: true, title: site.shortName, statusBarStyle: "default" },
+  appleWebApp: { capable: true, title: site.shortName, statusBarStyle: "black-translucent" },
   keywords: [
     "Kishor Career Point",
     "KCP",

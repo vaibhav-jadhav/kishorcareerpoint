@@ -136,7 +136,7 @@ export function SiteHeader() {
   const desktopLinks = primaryNav.filter((item) => item.href !== "/");
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-white shadow-[0_1px_8px_rgba(4,40,74,0.06)]">
+    <header className="site-header sticky top-0 z-40 border-b border-line bg-white shadow-[0_1px_8px_rgba(4,40,74,0.06)]">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20">
         <Link
           href="/"

@@ -52,6 +52,34 @@ html {
   }
 }
 
+/*
+ * Installed app on iPhone: the page runs edge to edge, behind the Dynamic Island and
+ * status bar. The header grows by the safe-area height and paints that strip brand blue,
+ * so the white status icons stay readable. Normal browser tabs are not affected.
+ */
+@media (display-mode: standalone) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  .site-header {
+    padding-top: env(safe-area-inset-top);
+  }
+
+  .site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: env(safe-area-inset-top);
+    background: var(--color-brand);
+  }
+
+  html {
+    scroll-padding-top: calc(6rem + env(safe-area-inset-top));
+  }
+}
+
 body {
   background: var(--page);
   color: var(--ink);

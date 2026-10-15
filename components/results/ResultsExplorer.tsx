@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useId, useRef, useState } from "react";
 import type { KeyboardEvent } from "react";
-import { examTabs, rankers, resultHighlights } from "@/content/rankers";
+import { examTabs, rankerPosterAlt, rankerPosters, rankers, resultHighlights } from "@/content/rankers";
 import type { ExamId } from "@/content/rankers";
 
 type Filter = "all" | ExamId;
@@ -15,8 +15,14 @@ export function ResultsExplorer() {
   const baseId = useId();
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  const shownRankers = rankers.filter((item) => active === "all" || item.exam === active);
-  const shownPosters = resultHighlights.filter((item) => active === "all" || item.exam === active);
+  const shownRankerPosters = rankerPosters.filter((item) => active === "all" || item.exam === active);
+  const examsWithPosters = new Set(rankerPosters.map((item) => item.exam));
+  const shownRankers = rankers.filter(
+    (item) => (active === "all" || item.exam === active) && !examsWithPosters.has(item.exam),
+  );
+  const shownPosters = resultHighlights.filter(
+    (item) => (active === "all" || item.exam === active) && !examsWithPosters.has(item.exam),
+  );
 
   function onKeyDown(event: KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = index;
@@ -70,6 +76,34 @@ export function ResultsExplorer() {
         aria-labelledby={`${baseId}-tab-${active}`}
         className="anim-rise mt-10 space-y-12"
       >
+        {shownRankerPosters.length > 0 ? (
+          <section aria-labelledby={`${baseId}-ranker-posters`}>
+            <h2
+              id={`${baseId}-ranker-posters`}
+              className="text-xl font-extrabold tracking-tight text-brand-dark sm:text-2xl"
+            >
+              NEET <span className="text-brand">toppers</span>
+            </h2>
+            <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {shownRankerPosters.map((poster) => (
+                <li
+                  key={poster.image}
+                  className="overflow-hidden rounded-2xl shadow-[0_12px_28px_-18px_rgba(4,40,74,0.45)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_32px_-16px_rgba(0,90,170,0.45)]"
+                >
+                  <Image
+                    src={poster.image}
+                    alt={rankerPosterAlt(poster)}
+                    width={1024}
+                    height={723}
+                    sizes="(min-width: 1024px) 360px, (min-width: 640px) 45vw, 92vw"
+                    className="h-auto w-full origin-center scale-[1.04]"
+                  />
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
+
         {shownRankers.length > 0 ? (
           <section aria-labelledby={`${baseId}-rankers`}>
             <h2

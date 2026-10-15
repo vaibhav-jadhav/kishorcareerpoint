@@ -25,16 +25,17 @@ function Arrow({ direction }: { direction: "prev" | "next" }) {
 
 function Slide({ slide, priority }: { slide: ShowcaseSlide; priority: boolean }) {
   if (slide.kind === "poster") {
-    // Posters are square, so show them whole (no cropping) on the same navy as ranker slides.
+    // The JPEGs already have rounded white corners. Scale them just enough that those
+    // corners are clipped by the card, so a second navy/white frame does not show.
     return (
-      <div className="relative h-full w-full bg-brand-dark">
+      <div className="relative h-full w-full">
         <Image
           src={slide.image}
           alt={slide.title}
           fill
           sizes="(min-width: 1024px) 448px, 100vw"
           priority={priority}
-          className="object-contain"
+          className="object-cover scale-[1.04]"
         />
       </div>
     );
@@ -107,8 +108,8 @@ export function HeroShowcase({ slides }: { slides: ShowcaseSlide[] }) {
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="overflow-hidden rounded-3xl border border-white bg-white shadow-[0_20px_50px_-12px_rgba(4,40,74,0.35)]">
-        <div className="aspect-[5/4] w-full">
+      <div className="overflow-hidden rounded-3xl shadow-[0_20px_50px_-12px_rgba(4,40,74,0.35)]">
+        <div className="aspect-[5649/3986] w-full">
           <div
             className="flex h-full transition-transform duration-700 ease-out motion-reduce:transition-none"
             style={{ transform: `translateX(-${index * 100}%)` }}

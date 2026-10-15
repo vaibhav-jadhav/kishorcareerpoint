@@ -31,12 +31,6 @@ export const rankers: Ranker[] = [
     image: "/rankers/rasika-patil.jpg",
   },
   {
-    name: "Saadahamad Mulla",
-    exam: "neet",
-    lines: ["NEET 2025: Score 593"],
-    image: "/rankers/saadahamad-mulla.jpg",
-  },
-  {
     name: "Ishan Patil",
     exam: "jee",
     lines: ["IIT Bombay"],
@@ -56,6 +50,34 @@ export const rankers: Ranker[] = [
   },
 ];
 
+/** Landscape result cards with the student's name and score printed on the image. */
+export type RankerPoster = {
+  name: string;
+  exam: ExamId;
+  year: number;
+  score: number;
+  image: string;
+  /** Featured posters also appear in the home page hero and the home page exam tab. */
+  featured: boolean;
+};
+
+export const rankerPosters: RankerPoster[] = [
+  { name: "Gajendra Shikarkhane", exam: "neet", year: 2026, score: 631, image: "/rankers/neet-2026-gajendra-shikarkhane.jpg", featured: true },
+  { name: "Atharv Takale", exam: "neet", year: 2026, score: 627, image: "/rankers/neet-2026-atharv-takale.jpg", featured: true },
+  { name: "Parth Patil", exam: "neet", year: 2026, score: 611, image: "/rankers/neet-2026-parth-patil.jpg", featured: true },
+  { name: "Kshitij Varape", exam: "neet", year: 2026, score: 600, image: "/rankers/neet-2026-kshitij-varape.jpg", featured: true },
+  { name: "Srushti Dhere", exam: "neet", year: 2026, score: 600, image: "/rankers/neet-2026-srushti-dhere.jpg", featured: true },
+  { name: "Saadahamad Mulla", exam: "neet", year: 2025, score: 593, image: "/rankers/neet-2025-saadahamad-mulla.jpg", featured: false },
+  { name: "Madhav Kakani", exam: "neet", year: 2025, score: 582, image: "/rankers/neet-2025-madhav-kakani.jpg", featured: false },
+  { name: "Kavyanjali Nagure", exam: "neet", year: 2025, score: 569, image: "/rankers/neet-2025-kavyanjali-nagure.jpg", featured: false },
+  { name: "Sanskar Patil", exam: "neet", year: 2025, score: 565, image: "/rankers/neet-2025-sanskar-patil.jpg", featured: false },
+  { name: "Yashodip Koli", exam: "neet", year: 2025, score: 553, image: "/rankers/neet-2025-yashodip-koli.jpg", featured: false },
+];
+
+export function rankerPosterAlt(poster: RankerPoster) {
+  return `${poster.name}, NEET ${poster.year}, score ${poster.score}`;
+}
+
 export type ResultHighlight = {
   title: string;
   exam: ExamId;
@@ -67,7 +89,5 @@ export const resultHighlights: ResultHighlight[] = [
   { title: "JEE Mains 2025", exam: "jee", image: "/results/jee-mains-2025.jpg" },
   { title: "KCP's NITians", exam: "jee", image: "/results/kcp-nitians.jpg" },
   { title: "Stars in IISER exam", exam: "iiser", image: "/results/stars-in-iiser.jpg" },
-  { title: "NEET 2024", exam: "neet", image: "/results/neet-2024.jpg" },
-  { title: "AIIMS Pearls", exam: "neet", image: "/results/aiims-pearls.jpg" },
   { title: "Achievement in MHT-CET 2024", exam: "mht-cet", image: "/results/mht-cet-2024.jpg" },
 ];
